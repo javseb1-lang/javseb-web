@@ -1,0 +1,16 @@
+COLOCA AQUÍ EL VIDEO FINAL CON ESTE NOMBRE:
+
+javseb-play-showreel.mp4
+
+Recomendado:
+- 15 a 30 segundos
+- horizontal 16:9
+- 1080p
+- H.264 / MP4
+- puede ir sin audio: la web lo reproduce muted
+- mostrar varios juegos con cortes rápidos
+
+Ruta final:
+assets/video/javseb-play-showreel.mp4
+
+Si todavía no lo colocas, /juegos/ mostrará una portada visual temporal.

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JAVSEB Play: portafolio de juegos web y experiencias interactivas de JAVSEB.">
+  <meta name="theme-color" content="#061326">
+  <title>JAVSEB Play | Juegos y experiencias interactivas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/juegos.css">
+</head>
+<body class="play-page">
+  <header class="header play-header" id="header">
+    <div class="container header__content">
+      <a href="../" class="logo" aria-label="JAVSEB - Inicio"><img src="../assets/img/logo/logo-javseb-oficial.png" alt="JAVSEB" class="logo__image"></a>
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <a href="../" class="nav__link">Inicio</a><a href="../servicios/" class="nav__link">Servicios</a><a href="../proyectos/" class="nav__link">Proyectos</a><a href="./" class="nav__link active">Juegos</a><a href="../audiovisual/" class="nav__link">Audiovisual</a><a href="../nosotros/" class="nav__link">Nosotros</a><a href="../contacto/" class="nav__link nav__link--mobile-contact">Contacto</a>
+      </nav>
+      <div class="header__actions"><a href="../contacto/" class="button button--small header__contact">Contáctanos</a><button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button></div>
+    </div>
+    <div class="play-progress" aria-hidden="true"><span id="playProgress"></span></div>
+  </header>
+
+  <main>
+    <section class="play-hero">
+      <div class="play-grid-bg" aria-hidden="true"></div>
+      <div class="container play-hero__grid">
+        <div class="play-hero__copy play-reveal">
+          <span class="play-label">JAVSEB / PLAY DIVISION · 01</span>
+          <h1>Juegos y experiencias <strong>hechas para compartir.</strong></h1>
+          <p>Una línea de JAVSEB dedicada a explorar juego, interacción y tecnología desde el navegador. Entrar, compartir y jugar.</p>
+          <div class="play-hero__actions"><a href="https://juegos-javseb.javseb-kiru.workers.dev/" target="_blank" rel="noopener" class="play-btn play-btn--primary">Jugar ahora <span>↗</span></a><a href="#catalogo" class="play-btn play-btn--ghost">Ver portafolio</a></div>
+          <div class="play-hero__facts"><span><b>10</b> juegos</span><span><b>●</b> salas compartidas</span><span><b>0</b> descargas</span></div>
+        </div>
+        <div class="play-video play-reveal" id="playVideoShell">
+          <video id="playShowreel" autoplay muted loop playsinline preload="metadata"><source src="../assets/video/javseb-play-showreel.mp4" type="video/mp4"></video>
+          <div class="play-video__fallback"><span>SHOWREEL</span><strong>JAVSEB PLAY</strong><p>Tu video se mostrará aquí.<br><code>assets/video/javseb-play-showreel.mp4</code></p><div class="play-video__cards"><i>🏎</i><i>⚽</i><i>💣</i><i>🤖</i></div></div>
+          <div class="play-video__hud"><span><i></i> PLAY DIVISION</span><b>01 / SHOWCASE</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="play-section play-project">
+      <div class="container">
+        <div class="play-heading play-reveal"><div><span>PROYECTO DESTACADO</span><h2>Juegos JAVSEB</h2></div><p>Una plataforma web para entrar a una partida, elegir un reto y compartir la experiencia con otras personas desde el navegador.</p></div>
+        <div class="play-project__showcase play-reveal">
+          <div class="play-project__visual"><div class="play-browser"><div class="play-browser__bar"><i></i><i></i><i></i><span>juegos-javseb</span></div><div class="play-browser__hero"><small>EL MEJOR PLAN ES JUNTOS</small><strong>Una sala.<br>Mil formas de pasarla bien.</strong><span>En línea · En un dispositivo · Sin descargas</span></div><div class="play-browser__grid"><div><b>🏎</b><span>Carreras 2D</span></div><div><b>⚽</b><span>Fútbol de discos</span></div><div><b>💣</b><span>Laberinto explosivo</span></div><div><b>🤖</b><span>Sumo de robots</span></div></div></div><img src="../assets/img/kiru/kiru-tablet.png" alt="Kiru como compañero de JAVSEB Play" class="play-project__kiru" loading="lazy"></div>
+          <div class="play-project__copy"><span class="play-index">PLAY DIVISION · 01</span><h3>Un portafolio que también se puede jugar.</h3><p>JAVSEB Play funciona como laboratorio y muestra de experiencias interactivas: juegos arcade, retos sociales, deducción y dinámicas para grupos.</p><div class="play-project__stats"><div><strong>10</strong><span>juegos disponibles</span></div><div><strong>Web</strong><span>sin descarga</span></div><div><strong>Salas</strong><span>por código</span></div><div><strong>Multi</strong><span>para compartir</span></div></div><a href="https://juegos-javseb.javseb-kiru.workers.dev/" target="_blank" rel="noopener" class="play-btn play-btn--primary">Abrir Juegos JAVSEB <span>↗</span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="play-section play-catalog" id="catalogo">
+      <div class="container">
+        <div class="play-heading play-heading--center play-reveal"><div><span>PORTAFOLIO DE JUEGOS</span><h2>¿A qué jugamos hoy?</h2></div><p>Diez experiencias actuales dentro de Juegos JAVSEB.</p></div>
+        <div class="play-catalog__grid">
+          <article class="play-game play-game--accent play-reveal"><span class="play-game__number">10</span><div class="play-game__icon">🏎</div><small>CARRERA ARCADE</small><h3>Carreras 2D</h3><p>Toma la curva, guarda el turbo y cruza primero la meta.</p><b>2–4 pilotos · con CPU</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">09</span><div class="play-game__icon">⚽</div><small>FÚTBOL ARCADE</small><h3>Fútbol de discos</h3><p>Encuentra el ángulo, impulsa el disco y marca el gol.</p><b>1 vs 1 o 2 vs 2 · con CPU</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">08</span><div class="play-game__icon">💣</div><small>ESTRATEGIA</small><h3>Laberinto explosivo</h3><p>Abre camino, coloca bombas y recuerda siempre tu salida.</p><b>2–4 jugadores · con CPU</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">07</span><div class="play-game__icon">🛡</div><small>COMBATE 2D</small><h3>Batalla de tanques</h3><p>Busca cobertura, apunta y lucha por quedar en pie.</p><b>2–4 tanques · con CPU</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">06</span><div class="play-game__icon">🤖</div><small>ARENA 2D</small><h3>Sumo de robots</h3><p>Impulsa, choca y resiste hasta ser el último robot.</p><b>2–4 robots · con CPU</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">01</span><div class="play-game__icon">🕵</div><small>DEDUCCIÓN SOCIAL</small><h3>El impostor</h3><p>Todos tienen una palabra. Alguien tiene un secreto.</p><b>3+ jugadores</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">02</span><div class="play-game__icon">?</div><small>IDENTIDAD SECRETA</small><h3>Adivina el personaje</h3><p>Pregunta, sospecha y descubre quién está detrás.</p><b>2+ jugadores</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">03</span><div class="play-game__icon">♠</div><small>APUESTAS Y EQUIPOS</small><h3>Mentiroso</h3><p>Sube la apuesta o atrévete a decir: no te creo.</p><b>2 equipos</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">04</span><div class="play-game__icon">⏱</div><small>PRECISIÓN</small><h3>Detener el tiempo</h3><p>Confía en tu reloj interno. Cada centésima cuenta.</p><b>2+ jugadores</b></article>
+          <article class="play-game play-reveal"><span class="play-game__number">05</span><div class="play-game__icon">◎</div><small>CONEXIÓN MENTAL</small><h3>En sintonía</h3><p>Una pista conecta dos mentes. Encuentra el punto.</p><b>2 o 4+ jugadores</b></article>
+        </div>
+        <div class="play-catalog__cta play-reveal"><p>El catálogo completo está vivo en la plataforma.</p><a href="https://juegos-javseb.javseb-kiru.workers.dev/" target="_blank" rel="noopener" class="play-btn play-btn--primary">Elegir un juego <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="play-section play-build"><div class="container"><div class="play-heading play-reveal"><div><span>DETRÁS DEL JUEGO</span><h2>También es desarrollo de producto.</h2></div><p>Cada experiencia combina decisiones de interacción, lógica, interfaz y funcionamiento web para lograr algo simple de entender y divertido de usar.</p></div><div class="play-build__grid"><article class="play-build__item play-reveal"><b>01</b><span>UX</span><h3>Experiencia de juego</h3><p>Reglas y flujos que se entienden rápidamente.</p></article><article class="play-build__item play-reveal"><b>02</b><span>LOGIC</span><h3>Lógica de juego</h3><p>Estados, rondas, puntajes y comportamiento del reto.</p></article><article class="play-build__item play-reveal"><b>03</b><span>ROOM</span><h3>Experiencias compartidas</h3><p>Salas y códigos pensados para reunir jugadores.</p></article><article class="play-build__item play-reveal"><b>04</b><span>WEB</span><h3>Acceso desde navegador</h3><p>Sin convertir la entrada al juego en una barrera.</p></article></div></div></section>
+
+    <section class="play-cta"><div class="container play-cta__box play-reveal"><div><span>JAVSEB PLAY</span><h2>¿Tienes una idea para un juego o experiencia interactiva?</h2><p>Podemos explorarla como prototipo, experiencia web o proyecto especial.</p><div class="play-cta__actions"><a href="../contacto/" class="play-btn play-btn--primary">Hablemos <span>→</span></a><a href="https://juegos-javseb.javseb-kiru.workers.dev/" target="_blank" rel="noopener" class="play-btn play-btn--ghost">Ir a jugar ↗</a></div></div><img src="../assets/img/kiru/kiru-saludando.png" alt="Kiru invitando a descubrir JAVSEB Play" loading="lazy"></div></section>
+  </main>
+
+  <footer class="play-footer"><div class="container"><div class="play-footer__top"><div class="play-footer__brand"><img src="../assets/img/logo/logo-javseb-oficial.png" alt="JAVSEB"><p>JAVSEB Play · Juegos y experiencias interactivas.</p></div><div><h3>JAVSEB</h3><a href="../">Inicio</a><a href="../servicios/">Servicios</a><a href="../proyectos/">Proyectos</a><a href="../audiovisual/">Audiovisual</a></div><div><h3>Play</h3><a href="https://juegos-javseb.javseb-kiru.workers.dev/" target="_blank" rel="noopener">Jugar ahora ↗</a><a href="../contacto/">Contacto</a></div></div><div class="play-footer__bottom"><span>© <span id="playYear"></span> JAVSEB. Todos los derechos reservados.</span><div><a href="../privacidad/">Privacidad</a><a href="../terminos/">Términos</a><a href="../eliminacion-datos/">Eliminación de datos</a></div></div></div></footer>
+  <script src="../assets/js/main.js"></script><script src="../assets/js/juegos.js"></script>
+</body>
+</html>
