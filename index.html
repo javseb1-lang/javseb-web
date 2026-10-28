@@ -14,9 +14,89 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/home-v2.css">
+  <link rel="stylesheet" href="assets/css/experience-v3.css">
+
+  <script>
+    (() => {
+      try {
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const seen = sessionStorage.getItem("javseb-v3-intro-seen") === "1";
+
+        if (!reduced && !seen) {
+          document.documentElement.classList.add("v3-intro-pending");
+        }
+      } catch (_) {
+        document.documentElement.classList.add("v3-intro-pending");
+      }
+    })();
+  </script>
+
 </head>
 
 <body class="home-v2">
+  <!-- =====================================================
+       JAVSEB V3 — CINEMATIC INTRO
+       Se muestra una vez por sesión.
+  ===================================================== -->
+  <div class="v3-intro" id="v3Intro" aria-hidden="true">
+
+    <div class="v3-intro__grid" aria-hidden="true"></div>
+    <div class="v3-intro__orb v3-intro__orb--one" aria-hidden="true"></div>
+    <div class="v3-intro__orb v3-intro__orb--two" aria-hidden="true"></div>
+
+    <div class="v3-intro__hud v3-intro__hud--left" aria-hidden="true">
+      <span>JAVSEB / DIGITAL SYSTEMS</span>
+      <i></i>
+      <small>BOOT SEQUENCE</small>
+    </div>
+
+    <div class="v3-intro__hud v3-intro__hud--right" aria-hidden="true">
+      <small>CBBA / BOLIVIA</small>
+      <i></i>
+      <span>ONLINE</span>
+    </div>
+
+    <div class="v3-intro__center">
+
+      <div class="v3-intro__logo-shell">
+        <div class="v3-intro__ring v3-intro__ring--outer" aria-hidden="true"></div>
+        <div class="v3-intro__ring v3-intro__ring--inner" aria-hidden="true"></div>
+
+        <img
+          src="assets/img/logo/logo-javseb-oficial.png"
+          alt="JAVSEB"
+          class="v3-intro__logo"
+          id="v3IntroLogo"
+        >
+      </div>
+
+      <div class="v3-intro__brandline" aria-hidden="true">
+        <i></i>
+        <span>TECNOLOGÍA PARA TODOS</span>
+        <i></i>
+      </div>
+
+      <h2 class="v3-intro__statement">
+        Creamos la parte digital
+        <strong>que mueve tus ideas.</strong>
+      </h2>
+
+      <div class="v3-intro__progress" aria-hidden="true">
+        <i id="v3IntroProgress"></i>
+      </div>
+
+      <span class="v3-intro__status" id="v3IntroStatus">
+        INICIANDO EXPERIENCIA
+      </span>
+
+    </div>
+
+    <div class="v3-intro__curtain v3-intro__curtain--left" aria-hidden="true"></div>
+    <div class="v3-intro__curtain v3-intro__curtain--right" aria-hidden="true"></div>
+
+  </div>
+
+
   <header class="header" id="header">
     <div class="container header__content">
       <a href="/" class="logo" aria-label="JAVSEB - Inicio">
@@ -43,83 +123,163 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="v2-hero">
+    <!-- =====================================================
+         HERO V3 — CREATIVE EXPERIENCE
+    ===================================================== -->
+    <section class="v2-hero" id="inicio">
+
       <div class="v2-grid-bg" aria-hidden="true"></div>
       <div class="v2-orb v2-orb--one" aria-hidden="true"></div>
       <div class="v2-orb v2-orb--two" aria-hidden="true"></div>
 
       <div class="container v2-hero__grid">
-        <div class="v2-hero__copy reveal">
-          <div class="v2-eyebrow">
+
+        <!-- TEXTO -->
+        <div class="v2-hero__copy reveal v3-hero-copy" id="v3HeroCopy">
+
+          <div class="v2-eyebrow v3-hero-eyebrow" id="v3HeroEyebrow">
             <span></span>
             SOLUCIONES DIGITALES PARA NEGOCIOS REALES
           </div>
 
-          <h1>
-            Tecnología para todos.
+          <h1 class="v3-hero-title" id="v3HeroTitle">
+            <span class="v3-hero-title__main">Tecnología para todos.</span>
             <strong>Haz crecer tu negocio también en digital.</strong>
           </h1>
 
-          <p class="v2-hero__lead">
+          <p class="v2-hero__lead v3-hero-lead" id="v3HeroLead">
             Creamos sistemas, páginas web, tiendas online y aplicaciones pensadas
             alrededor de lo que tu negocio realmente necesita.
           </p>
 
-          <div class="v2-hero__actions">
-            <a href="#quiero-lograr" class="v2-btn v2-btn--primary">Quiero digitalizar mi negocio <span>→</span></a>
-            <a href="servicios/" class="v2-btn v2-btn--ghost">Ver servicios</a>
+          <div class="v2-hero__actions v3-hero-actions" id="v3HeroActions">
+            <a href="#quiero-lograr" class="v2-btn v2-btn--primary">
+              Quiero digitalizar mi negocio <span>→</span>
+            </a>
+
+            <a href="servicios/" class="v2-btn v2-btn--ghost">
+              Ver servicios
+            </a>
           </div>
 
-          <div class="v2-trust-row" aria-label="Ventajas JAVSEB">
+          <div class="v2-trust-row v3-hero-trust" id="v3HeroTrust" aria-label="Ventajas JAVSEB">
             <span>✓ Soluciones a medida</span>
             <span>✓ Atención cercana</span>
             <span>✓ Tecnología sin complicaciones</span>
           </div>
+
         </div>
 
-        <div class="v2-hero__stage reveal" data-parallax-stage>
+        <!-- HERO VISUAL -->
+        <div
+          class="v2-hero__stage v3-hero-stage reveal"
+          data-parallax-stage
+          id="v3HeroStage"
+        >
+
           <div class="v2-hero__halo" aria-hidden="true"></div>
 
-          <div class="v2-store-window">
+          <!-- CAPAS AMBIENTALES V3 -->
+          <div class="v3-hero-beam v3-hero-beam--one" aria-hidden="true"></div>
+          <div class="v3-hero-beam v3-hero-beam--two" aria-hidden="true"></div>
+          <div class="v3-hero-scanline" aria-hidden="true"></div>
+
+          <!-- KIRU MOBILE — SALUDO AL INICIO -->
+          <div
+            class="v3-mobile-hero-kiru"
+            id="v3MobileHeroKiru"
+          >
+            <div class="v3-mobile-hero-kiru__glow" aria-hidden="true"></div>
+
+            <img
+              src="assets/img/kiru/motion/greeting/kiru-greeting-01.png"
+              alt="Kiru saludando"
+              id="v3MobileHeroGreetingFrame"
+            >
+
+            <div class="v3-mobile-hero-kiru__bubble">
+              <span>HOLA, SOY KIRU</span>
+              <strong>Bienvenido a JAVSEB.</strong>
+            </div>
+          </div>
+
+          <!-- MOCKUP PRINCIPAL -->
+          <div class="v2-store-window v3-store-window" id="v3StoreWindow">
+
             <div class="v2-store-window__top">
-              <i></i><i></i><i></i>
+              <i></i>
+              <i></i>
+              <i></i>
               <span>Tu negocio online</span>
             </div>
+
             <img
               src="assets/img/ecommerce/tienda-online-escritorio.png"
               alt="Ejemplo de tienda online creada para vender por internet"
               loading="eager"
             >
+
             <div class="v2-store-window__badge">
               <span>Web + tienda online</span>
               <b>Diseñada para vender</b>
             </div>
+
           </div>
 
+          <!-- KIRU CAMINANDO -->
+          <div
+            class="v3-kiru-walker"
+            id="v3KiruWalker"
+            aria-hidden="true"
+          >
+            <div class="v3-kiru-walker__sprite"></div>
+          </div>
+
+          <!-- LUZ DE LLEGADA -->
+          <div
+            class="v3-kiru-arrival-glow"
+            id="v3KiruArrivalGlow"
+            aria-hidden="true"
+          ></div>
+
+          <!-- KIRU FINAL -->
           <img
             src="assets/img/kiru/kiru-tablet.png"
             alt="Kiru mostrando soluciones digitales"
-            class="v2-kiru v2-kiru--hero"
+            class="v2-kiru v2-kiru--hero v3-kiru-final"
+            id="v3KiruFinal"
             loading="eager"
           >
 
-          <div class="v2-floating-chip v2-floating-chip--sales">
+          <!-- CHIP 1 -->
+          <div class="v2-floating-chip v2-floating-chip--sales v3-hero-chip" id="v3HeroChipSales">
             <b>↗</b>
-            <span><small>Vende</small> también online</span>
+            <span>
+              <small>Vende</small>
+              también online
+            </span>
           </div>
 
-          <div class="v2-floating-chip v2-floating-chip--custom">
+          <!-- CHIP 2 -->
+          <div class="v2-floating-chip v2-floating-chip--custom v3-hero-chip" id="v3HeroChipCustom">
             <b>J</b>
-            <span><small>Soluciones</small> a tu medida</span>
+            <span>
+              <small>Soluciones</small>
+              a tu medida
+            </span>
           </div>
+
         </div>
       </div>
 
       <div class="v2-scroll-note" aria-hidden="true">
-        <span></span> Descubre JAVSEB
+        <span></span>
+        Descubre JAVSEB
       </div>
+
     </section>
+
+
 
     <!-- MARQUEE -->
     <section class="v2-marquee" aria-label="Capacidades JAVSEB">
@@ -138,234 +298,923 @@
         <span>APPS</span><i>✦</i>
       </div>
     </section>
+    <!-- =====================================================
+         V3 GOAL LAB — ¿QUÉ QUIERES LOGRAR?
+    ===================================================== -->
+    <section class="v2-section v2-goals v3-goal-lab" id="quiero-lograr">
 
-    <!-- QUÉ QUIERES LOGRAR -->
-    <section class="v2-section v2-goals" id="quiero-lograr">
       <div class="container">
-        <div class="v2-section-head reveal">
+
+        <div class="v2-section-head reveal v3-goal-lab__head">
           <div>
             <span class="v2-kicker">EMPECEMOS POR TU OBJETIVO</span>
             <h2>¿Qué quieres lograr?</h2>
           </div>
+
           <p>
             No necesitas conocer el nombre técnico de la solución.
-            Dinos qué quieres conseguir y nosotros te orientamos.
+            Elige lo que quieres conseguir y observa cómo cambia la propuesta.
           </p>
         </div>
 
-        <div class="v2-goals__layout">
-          <div class="v2-goal-tabs reveal" role="tablist" aria-label="Objetivos de negocio">
-            <button class="v2-goal-tab is-active" type="button" role="tab" aria-selected="true"
-              data-goal="sell">
+
+        <div class="v2-goals__layout v3-goal-lab__layout">
+
+          <!-- OPCIONES -->
+          <div
+            class="v2-goal-tabs v3-goal-lab__tabs reveal"
+            role="tablist"
+            aria-label="Objetivos de negocio"
+          >
+
+            <button
+              class="v2-goal-tab v3-goal-lab__tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-goal="sell"
+            >
               <span>01</span>
-              <b>Quiero vender por internet</b>
+
+              <div>
+                <small>COMERCIO DIGITAL</small>
+                <b>Quiero vender por internet</b>
+              </div>
+
               <i>→</i>
             </button>
 
-            <button class="v2-goal-tab" type="button" role="tab" aria-selected="false"
-              data-goal="organize">
+
+            <button
+              class="v2-goal-tab v3-goal-lab__tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-goal="organize"
+            >
               <span>02</span>
-              <b>Necesito organizar mi negocio</b>
+
+              <div>
+                <small>GESTIÓN</small>
+                <b>Necesito organizar mi negocio</b>
+              </div>
+
               <i>→</i>
             </button>
 
-            <button class="v2-goal-tab" type="button" role="tab" aria-selected="false"
-              data-goal="automate">
+
+            <button
+              class="v2-goal-tab v3-goal-lab__tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-goal="automate"
+            >
               <span>03</span>
-              <b>Quiero automatizar tareas</b>
+
+              <div>
+                <small>AUTOMATIZACIÓN</small>
+                <b>Quiero automatizar tareas</b>
+              </div>
+
               <i>→</i>
             </button>
 
-            <button class="v2-goal-tab" type="button" role="tab" aria-selected="false"
-              data-goal="idea">
+
+            <button
+              class="v2-goal-tab v3-goal-lab__tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-goal="idea"
+            >
               <span>04</span>
-              <b>Tengo una idea y no sé cómo hacerla</b>
+
+              <div>
+                <small>IDEA / PROYECTO</small>
+                <b>Tengo una idea y no sé cómo hacerla</b>
+              </div>
+
               <i>→</i>
             </button>
+
           </div>
 
-          <div class="v2-goal-result reveal" id="goalResult" aria-live="polite">
+
+          <!-- RESULTADO / LAB -->
+          <div
+            class="v2-goal-result v3-goal-lab__result reveal"
+            id="goalResult"
+            aria-live="polite"
+          >
+
             <div class="v2-goal-result__glow"></div>
 
-            <div class="v2-goal-result__copy">
-              <span class="v2-goal-result__label" id="goalLabel">PARA VENDER ONLINE</span>
-              <h3 id="goalTitle">Convierte tu negocio en una experiencia de compra digital.</h3>
-              <p id="goalDescription">
-                Podemos construir la presencia y las herramientas que necesitas
-                para mostrar tus productos, recibir pedidos y crecer en internet.
-              </p>
-
-              <div class="v2-goal-pills" id="goalPills">
-                <span>Tienda online</span>
-                <span>Catálogo digital</span>
-                <span>Pagos y pedidos</span>
-                <span>WhatsApp</span>
-                <span>Gestión de productos</span>
+            <div class="v3-goal-lab__topbar" aria-hidden="true">
+              <div>
+                <i></i>
+                <i></i>
+                <i></i>
               </div>
 
-              <a href="contacto/" class="v2-text-link">Cuéntanos tu idea <span>→</span></a>
+              <span id="v3GoalLabTopLabel">
+                JAVSEB / SOLUTION LAB
+              </span>
+
+              <b>
+                LIVE
+                <em></em>
+              </b>
             </div>
 
-            <img
-              src="assets/img/kiru/kiru-senalando.png"
-              alt="Kiru señalando las soluciones recomendadas"
-              class="v2-goal-result__kiru"
-            >
+
+            <div class="v3-goal-lab__body">
+
+              <!-- VISUALES -->
+              <div
+                class="v3-goal-lab__visual"
+                id="v3GoalVisual"
+                aria-hidden="true"
+              >
+
+                <div class="v3-goal-lab__grid"></div>
+
+                <!-- SELL -->
+                <div
+                  class="v3-goal-scene v3-goal-scene--sell is-active"
+                  data-goal-scene="sell"
+                >
+                  <div class="v3-goal-scene__desktop">
+                    <img
+                      src="assets/img/ecommerce/tienda-online-escritorio.png"
+                      alt=""
+                      loading="lazy"
+                    >
+                  </div>
+
+                  <div class="v3-goal-scene__phone">
+                    <img
+                      src="assets/img/ecommerce/tienda-online-movil.png"
+                      alt=""
+                      loading="lazy"
+                    >
+                  </div>
+
+                  <div class="v3-goal-scene__metric">
+                    <small>VENTA DIGITAL</small>
+                    <strong>24 / 7</strong>
+                  </div>
+
+                  <div class="v3-goal-scene__pulse"></div>
+                </div>
+
+
+                <!-- ORGANIZE -->
+                <div
+                  class="v3-goal-scene v3-goal-scene--organize"
+                  data-goal-scene="organize"
+                >
+                  <div class="v3-goal-scene__dashboard">
+                    <img
+                      src="assets/img/ecommerce/dashboard-ventas.png"
+                      alt=""
+                      loading="lazy"
+                    >
+                  </div>
+
+                  <div class="v3-goal-scene__data-card v3-goal-scene__data-card--one">
+                    <span>INVENTARIO</span>
+                    <strong>Todo en un solo lugar</strong>
+                    <i></i>
+                  </div>
+
+                  <div class="v3-goal-scene__data-card v3-goal-scene__data-card--two">
+                    <span>REPORTES</span>
+                    <strong>Información clara</strong>
+                    <i></i>
+                  </div>
+                </div>
+
+
+                <!-- AUTOMATE -->
+                <div
+                  class="v3-goal-scene v3-goal-scene--automate"
+                  data-goal-scene="automate"
+                >
+                  <div class="v3-auto-flow">
+
+                    <div class="v3-auto-node v3-auto-node--start">
+                      <span>ENTRADA</span>
+                      <b>Pedido</b>
+                    </div>
+
+                    <div class="v3-auto-link v3-auto-link--one">
+                      <i></i>
+                    </div>
+
+                    <div class="v3-auto-node v3-auto-node--logic">
+                      <span>REGLA</span>
+                      <b>Automatizar</b>
+                    </div>
+
+                    <div class="v3-auto-link v3-auto-link--two">
+                      <i></i>
+                    </div>
+
+                    <div class="v3-auto-node v3-auto-node--end">
+                      <span>ACCIÓN</span>
+                      <b>Notificar</b>
+                    </div>
+
+                    <div class="v3-auto-signal v3-auto-signal--one"></div>
+                    <div class="v3-auto-signal v3-auto-signal--two"></div>
+
+                  </div>
+
+                  <div class="v3-goal-scene__automation-note">
+                    <span>FLUJO ACTIVO</span>
+                    <strong>Menos tareas manuales.</strong>
+                  </div>
+                </div>
+
+
+                <!-- IDEA -->
+                <div
+                  class="v3-goal-scene v3-goal-scene--idea"
+                  data-goal-scene="idea"
+                >
+                  <div class="v3-idea-blueprint">
+                    <span>IDEA</span>
+                    <i class="v3-idea-blueprint__line v3-idea-blueprint__line--1"></i>
+                    <i class="v3-idea-blueprint__line v3-idea-blueprint__line--2"></i>
+                    <i class="v3-idea-blueprint__line v3-idea-blueprint__line--3"></i>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+
+                  <img
+                    src="assets/img/kiru/kiru-senalando.png"
+                    alt=""
+                    class="v3-goal-scene__kiru"
+                    loading="lazy"
+                  >
+
+                  <div class="v3-goal-scene__idea-badge">
+                    <small>DE CERO A</small>
+                    <strong>PROTOTIPO</strong>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <!-- COPY -->
+              <div class="v2-goal-result__copy v3-goal-lab__copy">
+
+                <span
+                  class="v2-goal-result__label"
+                  id="goalLabel"
+                >
+                  PARA VENDER ONLINE
+                </span>
+
+                <h3 id="goalTitle">
+                  Convierte tu negocio en una experiencia de compra digital.
+                </h3>
+
+                <p id="goalDescription">
+                  Podemos construir la presencia y las herramientas que necesitas
+                  para mostrar tus productos, recibir pedidos y crecer en internet.
+                </p>
+
+                <div
+                  class="v2-goal-pills"
+                  id="goalPills"
+                >
+                  <span>Tienda online</span>
+                  <span>Catálogo digital</span>
+                  <span>Pagos y pedidos</span>
+                  <span>WhatsApp</span>
+                  <span>Gestión de productos</span>
+                </div>
+
+                <div class="v3-goal-lab__footer">
+                  <a
+                    href="contacto/"
+                    class="v2-text-link"
+                  >
+                    Cuéntanos tu idea
+                    <span>→</span>
+                  </a>
+
+                  <small>
+                    SOLUCIÓN ADAPTADA A TU REALIDAD
+                  </small>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- ECOMMERCE FEATURE -->
-    <section class="v2-commerce">
-      <div class="container v2-commerce__grid">
-        <div class="v2-commerce__copy reveal">
+    <!-- =====================================================
+         V3 COMMERCE FLOW — UNA VENTA CONECTADA
+    ===================================================== -->
+    <section class="v3-commerce" id="commerce-flow">
+
+      <div class="container v3-commerce__grid">
+
+        <div class="v3-commerce__copy reveal">
           <span class="v2-kicker v2-kicker--light">VENDE TAMBIÉN EN DIGITAL</span>
-          <h2>Tu tienda abierta incluso cuando tú no lo estás.</h2>
+
+          <h2>
+            Una venta no termina
+            <strong>cuando alguien toca “comprar”.</strong>
+          </h2>
+
           <p>
-            Diseñamos experiencias de compra claras, rápidas y adaptadas al celular.
-            Desde un catálogo sencillo hasta una tienda online conectada con tus procesos.
+            Conectamos la experiencia del cliente con lo que ocurre detrás:
+            catálogo, pedido, información y gestión en un mismo recorrido.
           </p>
 
-          <ul class="v2-check-list">
-            <li><span>✓</span> Catálogo organizado y fácil de actualizar</li>
-            <li><span>✓</span> Experiencia preparada para celular</li>
-            <li><span>✓</span> Pedidos, pagos e integraciones</li>
-            <li><span>✓</span> Paneles para entender lo que está pasando</li>
-          </ul>
+          <div class="v3-commerce__facts">
+            <div>
+              <b>01</b>
+              <span>Descubre</span>
+              <small>Tu producto aparece claro y accesible.</small>
+            </div>
 
-          <a href="servicios/" class="v2-btn v2-btn--white">Conocer soluciones web <span>→</span></a>
+            <div>
+              <b>02</b>
+              <span>Compra</span>
+              <small>El pedido avanza sin fricción.</small>
+            </div>
+
+            <div>
+              <b>03</b>
+              <span>Gestiona</span>
+              <small>Tú ves qué ocurrió y qué sigue.</small>
+            </div>
+          </div>
+
+          <a href="servicios/" class="v2-btn v2-btn--white">
+            Conocer soluciones web
+            <span>→</span>
+          </a>
         </div>
 
-        <div class="v2-commerce__visual reveal">
-          <div class="v2-commerce__dashboard">
-            <img
-              src="assets/img/ecommerce/dashboard-ventas.png"
-              alt="Dashboard de ventas y pedidos"
-              loading="lazy"
+
+        <div class="v3-commerce__machine reveal" id="v3CommerceMachine">
+
+          <div class="v3-commerce__machine-top">
+            <div>
+              <i></i><i></i><i></i>
+            </div>
+
+            <span>JAVSEB / COMMERCE FLOW</span>
+
+            <b>
+              <em></em>
+              CONECTADO
+            </b>
+          </div>
+
+
+          <div class="v3-commerce__stage">
+
+            <div class="v3-commerce__grid-bg" aria-hidden="true"></div>
+
+            <!-- CONECTORES -->
+            <div class="v3-commerce__connector v3-commerce__connector--one" aria-hidden="true">
+              <i></i>
+            </div>
+
+            <div class="v3-commerce__connector v3-commerce__connector--two" aria-hidden="true">
+              <i></i>
+            </div>
+
+            <div class="v3-commerce__signal" id="v3CommerceSignal" aria-hidden="true"></div>
+
+
+            <!-- ETAPA 1 -->
+            <article
+              class="v3-commerce-card v3-commerce-card--store is-active"
+              data-commerce-stage="0"
             >
-          </div>
+              <span class="v3-commerce-card__index">01</span>
 
-          <div class="v2-commerce__catalog">
-            <img
-              src="assets/img/ecommerce/catalogo-carrito.png"
-              alt="Catálogo y carrito de compras"
-              loading="lazy"
+              <div class="v3-commerce-card__media">
+                <img
+                  src="assets/img/ecommerce/tienda-online-movil.png"
+                  alt="Tienda online adaptada a celular"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="v3-commerce-card__copy">
+                <small>DESCUBRE</small>
+                <strong>Una tienda que se entiende.</strong>
+              </div>
+            </article>
+
+
+            <!-- ETAPA 2 -->
+            <article
+              class="v3-commerce-card v3-commerce-card--cart"
+              data-commerce-stage="1"
             >
+              <span class="v3-commerce-card__index">02</span>
+
+              <div class="v3-commerce-card__media">
+                <img
+                  src="assets/img/ecommerce/catalogo-carrito.png"
+                  alt="Catálogo y carrito de compras"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="v3-commerce-card__copy">
+                <small>COMPRA</small>
+                <strong>Catálogo, carrito y pedido conectados.</strong>
+              </div>
+            </article>
+
+
+            <!-- ETAPA 3 -->
+            <article
+              class="v3-commerce-card v3-commerce-card--dashboard"
+              data-commerce-stage="2"
+            >
+              <span class="v3-commerce-card__index">03</span>
+
+              <div class="v3-commerce-card__media">
+                <img
+                  src="assets/img/ecommerce/dashboard-ventas.png"
+                  alt="Dashboard de ventas y pedidos"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="v3-commerce-card__copy">
+                <small>GESTIONA</small>
+                <strong>La información vuelve a tu negocio.</strong>
+              </div>
+            </article>
+
+
+            <div class="v3-commerce__status-card">
+              <span id="v3CommerceStatusLabel">CLIENTE</span>
+              <strong id="v3CommerceStatusTitle">Explorando productos</strong>
+              <i id="v3CommerceStatusBar"></i>
+            </div>
+
+
+            <div class="v3-commerce__badge">
+              <small>UN SOLO FLUJO</small>
+              <strong>Cliente → Pedido → Gestión</strong>
+            </div>
+
           </div>
 
-          <div class="v2-commerce__metric">
-            <small>Una experiencia</small>
-            <strong>pensada para vender</strong>
-          </div>
-
-          <div class="v2-commerce__note">
-            <span>DESKTOP + MÓVIL</span>
-            <b>Una experiencia coherente en cada pantalla.</b>
-          </div>
         </div>
+
       </div>
+
     </section>
 
-    <!-- SERVICIOS GRANDES -->
-    <section class="v2-section v2-services">
+    <!-- =====================================================
+         V3 CAPABILITY CORE — SERVICIOS
+    ===================================================== -->
+    <section class="v3-capabilities" id="capacidades">
+
       <div class="container">
-        <div class="v2-section-head reveal">
+
+        <div class="v3-capabilities__head reveal">
           <div>
             <span class="v2-kicker">LO QUE CONSTRUIMOS</span>
-            <h2>Tecnología que trabaja contigo.</h2>
+
+            <h2>
+              Distintas capacidades.
+              <strong>Un mismo ecosistema digital.</strong>
+            </h2>
           </div>
+
           <p>
-            No ofrecemos tecnología porque sí. Cada solución parte de una necesidad
-            concreta y se adapta a la forma real en la que trabajas.
+            Sistemas, web, aplicaciones, automatización, datos e integraciones
+            pueden trabajar por separado o conectarse como una sola solución.
           </p>
         </div>
 
-        <div class="v2-service-showcase">
-          <article class="v2-feature v2-feature--system reveal">
-            <div class="v2-feature__copy">
-              <span>01 · SISTEMAS PERSONALIZADOS</span>
-              <h3>Tu negocio no debería adaptarse al software.</h3>
-              <p>
-                Creamos herramientas para organizar procesos, usuarios, ventas,
-                inventarios, información y tareas según tu manera de trabajar.
-              </p>
-              <a href="servicios/" class="v2-text-link">Explorar sistemas <span>→</span></a>
+
+        <div class="v3-capabilities__layout">
+
+          <!-- ===============================================
+               SELECTOR
+          ================================================ -->
+          <div
+            class="v3-capabilities__selector reveal"
+            role="tablist"
+            aria-label="Capacidades JAVSEB"
+          >
+
+            <button
+              class="v3-capability-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-capability="systems"
+            >
+              <span>01</span>
+
+              <div>
+                <small>OPERACIÓN</small>
+                <b>Sistemas personalizados</b>
+              </div>
+
+              <i>→</i>
+            </button>
+
+
+            <button
+              class="v3-capability-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-capability="web"
+            >
+              <span>02</span>
+
+              <div>
+                <small>PRESENCIA DIGITAL</small>
+                <b>Web & e-commerce</b>
+              </div>
+
+              <i>→</i>
+            </button>
+
+
+            <button
+              class="v3-capability-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-capability="apps"
+            >
+              <span>03</span>
+
+              <div>
+                <small>MOVILIDAD</small>
+                <b>Aplicaciones</b>
+              </div>
+
+              <i>→</i>
+            </button>
+
+
+            <button
+              class="v3-capability-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-capability="automation"
+            >
+              <span>04</span>
+
+              <div>
+                <small>EFICIENCIA</small>
+                <b>IA & automatización</b>
+              </div>
+
+              <i>→</i>
+            </button>
+
+
+            <button
+              class="v3-capability-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-capability="integrations"
+            >
+              <span>05</span>
+
+              <div>
+                <small>CONEXIONES</small>
+                <b>APIs & integraciones</b>
+              </div>
+
+              <i>→</i>
+            </button>
+
+
+            <button
+              class="v3-capability-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-capability="data"
+            >
+              <span>06</span>
+
+              <div>
+                <small>INFORMACIÓN</small>
+                <b>Datos & dashboards</b>
+              </div>
+
+              <i>→</i>
+            </button>
+
+          </div>
+
+
+          <!-- ===============================================
+               CORE
+          ================================================ -->
+          <div
+            class="v3-capability-core reveal"
+            id="v3CapabilityCore"
+            data-capability-active="systems"
+          >
+
+            <div class="v3-capability-core__top">
+              <div>
+                <i></i><i></i><i></i>
+              </div>
+
+              <span>JAVSEB / CAPABILITY CORE</span>
+
+              <b>
+                <em></em>
+                ONLINE
+              </b>
             </div>
 
-            <div class="v2-ui-mockup" aria-label="Ejemplo visual de sistema">
-              <div class="v2-ui-sidebar">
-                <b>J</b><i></i><i></i><i></i><i></i>
-              </div>
-              <div class="v2-ui-main">
-                <div class="v2-ui-top"><span></span><span></span></div>
-                <div class="v2-ui-stats"><i></i><i></i><i></i></div>
-                <div class="v2-ui-chart">
-                  <svg viewBox="0 0 420 130" aria-hidden="true">
-                    <polyline points="0,105 45,90 85,98 125,54 165,67 208,28 250,55 295,38 340,18 390,34 420,15"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </article>
 
-          <article class="v2-feature v2-feature--web reveal">
-            <div class="v2-feature__media">
-              <img
-                src="assets/img/ecommerce/tienda-online-escritorio.png"
-                alt="Ejemplo visual de página web y tienda online"
-                loading="lazy"
+            <div class="v3-capability-core__stage">
+
+              <div class="v3-capability-core__grid" aria-hidden="true"></div>
+
+              <!-- NÚCLEO CENTRAL -->
+              <div
+                class="v3-core-orbit"
+                aria-hidden="true"
               >
-            </div>
+                <i class="v3-core-orbit__ring v3-core-orbit__ring--1"></i>
+                <i class="v3-core-orbit__ring v3-core-orbit__ring--2"></i>
+                <i class="v3-core-orbit__ring v3-core-orbit__ring--3"></i>
 
-            <div class="v2-feature__copy">
-              <span>02 · WEB & E-COMMERCE</span>
-              <h3>Una presencia digital que no solo se vea bien.</h3>
-              <p>
-                Diseñamos páginas y tiendas pensadas para comunicar con claridad,
-                generar confianza y convertir visitas en oportunidades.
-              </p>
-              <a href="servicios/" class="v2-text-link">Explorar web y tiendas <span>→</span></a>
-            </div>
-          </article>
+                <div class="v3-core-orbit__center">
+                  <span>J</span>
+                  <small>JAVSEB CORE</small>
+                </div>
 
-          <article class="v2-feature v2-feature--apps reveal">
-            <div class="v2-feature__copy">
-              <span>03 · APLICACIONES</span>
-              <h3>Tu servicio, directamente en el bolsillo de tus usuarios.</h3>
-              <p>
-                Apps enfocadas en facilitar tareas, conectar personas y llevar
-                procesos importantes al celular de forma sencilla.
-              </p>
-              <a href="servicios/" class="v2-text-link">Explorar aplicaciones <span>→</span></a>
-            </div>
-
-            <div class="v2-app-mockup" aria-label="Ejemplo visual de aplicación móvil">
-              <div class="v2-app-phone">
-                <div class="v2-app-phone__notch"></div>
-                <div class="v2-app-card v2-app-card--main"></div>
-                <div class="v2-app-row"><i></i><span></span></div>
-                <div class="v2-app-row"><i></i><span></span></div>
-                <div class="v2-app-row"><i></i><span></span></div>
-                <div class="v2-app-nav"><i></i><i></i><i></i></div>
+                <b class="v3-core-node v3-core-node--1">SYS</b>
+                <b class="v3-core-node v3-core-node--2">WEB</b>
+                <b class="v3-core-node v3-core-node--3">APP</b>
+                <b class="v3-core-node v3-core-node--4">AI</b>
+                <b class="v3-core-node v3-core-node--5">API</b>
+                <b class="v3-core-node v3-core-node--6">DATA</b>
               </div>
-              <div class="v2-app-badge">Diseñada para tu operación</div>
+
+
+              <!-- PREVIEWS -->
+              <div class="v3-capability-previews">
+
+                <!-- SYSTEMS -->
+                <div
+                  class="v3-capability-preview v3-capability-preview--systems is-active"
+                  data-capability-preview="systems"
+                >
+                  <div class="v3-cap-system">
+                    <aside>
+                      <b>J</b>
+                      <i></i><i></i><i></i><i></i>
+                    </aside>
+
+                    <main>
+                      <header>
+                        <span></span>
+                        <span></span>
+                      </header>
+
+                      <section>
+                        <article><small>VENTAS</small><b>+18%</b></article>
+                        <article><small>USUARIOS</small><b>128</b></article>
+                        <article><small>TAREAS</small><b>24</b></article>
+                      </section>
+
+                      <div class="v3-cap-system__chart">
+                        <svg viewBox="0 0 420 130" aria-hidden="true">
+                          <polyline points="0,105 45,90 85,98 125,54 165,67 208,28 250,55 295,38 340,18 390,34 420,15"/>
+                        </svg>
+                      </div>
+                    </main>
+                  </div>
+                </div>
+
+
+                <!-- WEB -->
+                <div
+                  class="v3-capability-preview v3-capability-preview--web"
+                  data-capability-preview="web"
+                >
+                  <div class="v3-cap-web__desktop">
+                    <img
+                      src="assets/img/ecommerce/tienda-online-escritorio.png"
+                      alt=""
+                      loading="lazy"
+                    >
+                  </div>
+
+                  <div class="v3-cap-web__phone">
+                    <img
+                      src="assets/img/ecommerce/tienda-online-movil.png"
+                      alt=""
+                      loading="lazy"
+                    >
+                  </div>
+                </div>
+
+
+                <!-- APPS -->
+                <div
+                  class="v3-capability-preview v3-capability-preview--apps"
+                  data-capability-preview="apps"
+                >
+                  <div class="v3-cap-app-phone">
+                    <div class="v3-cap-app-phone__notch"></div>
+                    <span>JAVSEB APP</span>
+                    <strong>Tu operación<br>en el bolsillo.</strong>
+
+                    <article></article>
+                    <article></article>
+                    <article></article>
+
+                    <nav>
+                      <i></i><i></i><i></i>
+                    </nav>
+                  </div>
+
+                  <div class="v3-cap-app-card">
+                    <span>APP / MOBILE</span>
+                    <strong>Conecta usuarios, tareas y servicios.</strong>
+                  </div>
+                </div>
+
+
+                <!-- AUTOMATION -->
+                <div
+                  class="v3-capability-preview v3-capability-preview--automation"
+                  data-capability-preview="automation"
+                >
+                  <div class="v3-cap-auto-node v3-cap-auto-node--1">
+                    <small>ENTRADA</small>
+                    <b>Mensaje</b>
+                  </div>
+
+                  <div class="v3-cap-auto-line v3-cap-auto-line--1">
+                    <i></i>
+                  </div>
+
+                  <div class="v3-cap-auto-node v3-cap-auto-node--2">
+                    <small>IA / REGLA</small>
+                    <b>Procesar</b>
+                  </div>
+
+                  <div class="v3-cap-auto-line v3-cap-auto-line--2">
+                    <i></i>
+                  </div>
+
+                  <div class="v3-cap-auto-node v3-cap-auto-node--3">
+                    <small>ACCIÓN</small>
+                    <b>Responder</b>
+                  </div>
+                </div>
+
+
+                <!-- INTEGRATIONS -->
+                <div
+                  class="v3-capability-preview v3-capability-preview--integrations"
+                  data-capability-preview="integrations"
+                >
+                  <div class="v3-cap-api v3-cap-api--a">WEB</div>
+                  <div class="v3-cap-api v3-cap-api--b">APP</div>
+                  <div class="v3-cap-api v3-cap-api--c">CRM</div>
+                  <div class="v3-cap-api v3-cap-api--d">PAGO</div>
+
+                  <div class="v3-cap-api__hub">
+                    <b>&lt;/&gt;</b>
+                    <span>API</span>
+                  </div>
+
+                  <i class="v3-cap-api__line v3-cap-api__line--1"></i>
+                  <i class="v3-cap-api__line v3-cap-api__line--2"></i>
+                  <i class="v3-cap-api__line v3-cap-api__line--3"></i>
+                  <i class="v3-cap-api__line v3-cap-api__line--4"></i>
+                </div>
+
+
+                <!-- DATA -->
+                <div
+                  class="v3-capability-preview v3-capability-preview--data"
+                  data-capability-preview="data"
+                >
+                  <div class="v3-cap-data">
+                    <header>
+                      <span>JAVSEB ANALYTICS</span>
+                      <b>LIVE</b>
+                    </header>
+
+                    <section>
+                      <article>
+                        <small>CONVERSIÓN</small>
+                        <strong>18.4%</strong>
+                      </article>
+
+                      <article>
+                        <small>INGRESOS</small>
+                        <strong>+24%</strong>
+                      </article>
+
+                      <article>
+                        <small>ACTIVIDAD</small>
+                        <strong>1.2K</strong>
+                      </article>
+                    </section>
+
+                    <div class="v3-cap-data__bars">
+                      <i style="--h:38%"></i>
+                      <i style="--h:54%"></i>
+                      <i style="--h:43%"></i>
+                      <i style="--h:72%"></i>
+                      <i style="--h:61%"></i>
+                      <i style="--h:86%"></i>
+                      <i style="--h:76%"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <!-- COPY DINÁMICO -->
+              <div class="v3-capability-core__copy">
+
+                <span id="v3CapabilityLabel">
+                  01 / SISTEMAS PERSONALIZADOS
+                </span>
+
+                <h3 id="v3CapabilityTitle">
+                  Software que se adapta a tu operación.
+                </h3>
+
+                <p id="v3CapabilityDescription">
+                  Organizamos procesos, usuarios, información, ventas y tareas
+                  alrededor de la forma real en la que trabaja tu negocio.
+                </p>
+
+                <div
+                  class="v3-capability-core__pills"
+                  id="v3CapabilityPills"
+                >
+                  <i>Procesos</i>
+                  <i>Usuarios</i>
+                  <i>Inventarios</i>
+                  <i>Reportes</i>
+                </div>
+
+                <a href="servicios/" class="v2-text-link">
+                  Ver todos los servicios
+                  <span>→</span>
+                </a>
+
+              </div>
+
+
+              <div class="v3-capability-core__status">
+                <em></em>
+                <span id="v3CapabilityStatus">OPERACIÓN CONECTADA</span>
+              </div>
+
             </div>
-          </article>
+
+          </div>
+
         </div>
 
-        <div class="v2-capabilities reveal">
-          <a href="servicios/"><b>DB</b><span>Bases de datos</span></a>
-          <a href="servicios/"><b>IA</b><span>IA y chatbots</span></a>
-          <a href="servicios/"><b>⚙</b><span>Automatización</span></a>
-          <a href="servicios/"><b>&lt;/&gt;</b><span>APIs e integraciones</span></a>
-          <a href="servicios/"><b>UX</b><span>UI / UX</span></a>
-          <a href="servicios/"><b>↗</b><span>Dashboards</span></a>
-        </div>
       </div>
+
     </section>
 
-    <!-- PROYECTOS DESTACADOS -->
+<!-- PROYECTOS DESTACADOS -->
     <section class="v2-section v2-projects" id="proyectos-destacados">
       <div class="container">
         <div class="v2-section-head reveal">
@@ -568,47 +1417,350 @@
         </div>
       </div>
     </section>
+    <!-- =====================================================
+         V3 JOURNEY — ESCALERA
+         DE UNA IDEA A UNA SOLUCIÓN
+    ===================================================== -->
+    <section class="v3-stairs" id="proceso-v3">
 
-    <!-- PROCESS -->
-    <section class="v2-section v2-process">
       <div class="container">
-        <div class="v2-section-head v2-section-head--center reveal">
-          <div>
-            <span class="v2-kicker">CÓMO TRABAJAMOS</span>
-            <h2>De una idea a una solución que puedes usar.</h2>
-          </div>
+
+        <div class="v3-stairs__head reveal">
+          <span class="v3-stairs__kicker">CÓMO TRABAJAMOS</span>
+
+          <h2>
+            Cada paso acerca tu idea
+            <strong>a una solución real.</strong>
+          </h2>
+
+          <p>
+            No saltamos directo al código. Avanzamos por etapas claras para entender,
+            diseñar, construir y lanzar una solución que realmente tenga sentido.
+          </p>
         </div>
 
-        <div class="v2-process__rail reveal">
-          <article>
-            <span>01</span>
-            <div class="v2-process__icon">✦</div>
-            <h3>Nos cuentas</h3>
-            <p>Entendemos tu necesidad y el contexto de tu negocio.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <div class="v2-process__icon">⌕</div>
-            <h3>Analizamos</h3>
-            <p>Definimos qué solución aporta valor y qué no hace falta complicar.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <div class="v2-process__icon">&lt;/&gt;</div>
-            <h3>Construimos</h3>
-            <p>Diseñamos, desarrollamos y probamos contigo.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <div class="v2-process__icon">✓</div>
-            <h3>Acompañamos</h3>
-            <p>Entregamos, explicamos y seguimos cerca cuando lo necesitas.</p>
-          </article>
+        <!-- =================================================
+             MÓVIL: SALUDO ANIMADO
+        ================================================== -->
+        <div class="v3-mobile-process__hello reveal" id="v3MobileHello">
+
+          <div class="v3-mobile-process__hello-visual">
+            <div class="v3-mobile-process__hello-glow" aria-hidden="true"></div>
+
+            <img
+              src="assets/img/kiru/motion/greeting/kiru-greeting-01.png"
+              alt="Kiru saludando al inicio del proceso JAVSEB"
+              id="v3MobileGreetingFrame"
+            >
+          </div>
+
+          <div class="v3-mobile-process__hello-copy">
+            <span>VAMOS PASO A PASO</span>
+            <strong>Te acompañamos desde la idea hasta el lanzamiento.</strong>
+            <small>Desliza para comenzar el recorrido ↓</small>
+          </div>
+
         </div>
+
+<div class="v3-stairs__layout">
+
+          <!-- =================================================
+               PANEL STICKY
+          ================================================== -->
+          <aside class="v3-stairs__aside">
+
+            <div
+              class="v3-stairs__aside-card"
+              id="v3StairsAside"
+            >
+
+              <span
+                class="v3-stairs__aside-index"
+                id="v3StairsIndex"
+              >
+                01 / 05
+              </span>
+
+              <div
+                class="v3-stairs__aside-icon"
+                id="v3StairsIcon"
+              >
+                ✦
+              </div>
+
+              <h3 id="v3StairsTitle">
+                Entender antes de construir
+              </h3>
+
+              <p id="v3StairsText">
+                Todo empieza entendiendo el problema, la idea y lo que realmente
+                necesita tu negocio o proyecto.
+              </p>
+
+              <div class="v3-stairs__aside-status">
+                <span></span>
+                <b id="v3StairsStatus">
+                  ESCUCHANDO TU IDEA
+                </b>
+              </div>
+
+              <div class="v3-stairs__meter">
+                <i id="v3StairsMeter"></i>
+              </div>
+
+            </div>
+
+          </aside>
+
+
+          <!-- =================================================
+               ESCALERA
+          ================================================== -->
+          <div
+            class="v3-stairs__scene"
+            id="v3StairsScene"
+            aria-label="Proceso de trabajo JAVSEB"
+          >
+
+            <div class="v3-stairs__ambient" aria-hidden="true"></div>
+
+
+            <!-- ESCALONES DECORATIVOS -->
+            <div
+              class="v3-stairs__staircase"
+              aria-hidden="true"
+            >
+              <i style="--s:0"></i>
+              <i style="--s:1"></i>
+              <i style="--s:2"></i>
+              <i style="--s:3"></i>
+              <i style="--s:4"></i>
+              <i style="--s:5"></i>
+              <i style="--s:6"></i>
+              <i style="--s:7"></i>
+              <i style="--s:8"></i>
+              <i style="--s:9"></i>
+              <i style="--s:10"></i>
+              <i style="--s:11"></i>
+              <i style="--s:12"></i>
+              <i style="--s:13"></i>
+            </div>
+
+
+            <!-- PROGRESO DE ESCALERA -->
+            <div
+              class="v3-stairs__progress"
+              id="v3StairsProgress"
+              aria-hidden="true"
+            ></div>
+
+
+            <!-- KIRU CAMINANDO POR LA ESCALERA -->
+            <div
+              class="v3-stairs__kiru"
+              id="v3StairsKiru"
+              aria-hidden="true"
+            >
+              <div class="v3-stairs__kiru-glow"></div>
+
+              <img
+                src="assets/img/kiru/motion/stairs/kiru-stairs-01.png"
+                alt=""
+                id="v3StairsKiruFrame"
+              >
+            </div>
+
+
+            <!-- =================================================
+                 HITOS
+            ================================================== -->
+            <article
+              class="v3-stairs__milestone v3-stairs__milestone--1 is-active"
+              data-stairs-step="0"
+            >
+              <div class="v3-stairs__node">
+                <b>01</b>
+              </div>
+
+              <div class="v3-stairs__mini-card">
+                <span>IDEA</span>
+                <strong>Cuéntanos qué necesitas.</strong>
+              </div>
+            </article>
+
+
+            <article
+              class="v3-stairs__milestone v3-stairs__milestone--2"
+              data-stairs-step="1"
+            >
+              <div class="v3-stairs__node">
+                <b>02</b>
+              </div>
+
+              <div class="v3-stairs__mini-card">
+                <span>ANÁLISIS</span>
+                <strong>Definimos el mejor camino.</strong>
+              </div>
+            </article>
+
+
+            <article
+              class="v3-stairs__milestone v3-stairs__milestone--3"
+              data-stairs-step="2"
+            >
+              <div class="v3-stairs__node">
+                <b>03</b>
+              </div>
+
+              <div class="v3-stairs__mini-card">
+                <span>DISEÑO</span>
+                <strong>Damos forma a la experiencia.</strong>
+              </div>
+            </article>
+
+
+            <article
+              class="v3-stairs__milestone v3-stairs__milestone--4"
+              data-stairs-step="3"
+            >
+              <div class="v3-stairs__node">
+                <b>04</b>
+              </div>
+
+              <div class="v3-stairs__mini-card">
+                <span>DESARROLLO</span>
+                <strong>Construimos y probamos.</strong>
+              </div>
+            </article>
+
+
+            <article
+              class="v3-stairs__milestone v3-stairs__milestone--5"
+              data-stairs-step="4"
+            >
+              <div class="v3-stairs__node">
+                <b>05</b>
+              </div>
+
+              <div class="v3-stairs__mini-card">
+                <span>LANZAMIENTO</span>
+                <strong>La solución empieza a trabajar.</strong>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- =================================================
+               MÓVIL: KIRU BAJA LA ESCALERA DE ESPALDAS
+          ================================================== -->
+          <div
+            class="v3-mobile-process"
+            id="v3MobileProcess"
+          >
+
+            <div class="v3-mobile-process__hud">
+              <span id="v3MobileProcessIndex">01 / 05</span>
+              <b id="v3MobileProcessStatus">IDEA</b>
+            </div>
+
+            <div
+              class="v3-mobile-process__route"
+              id="v3MobileProcessRoute"
+            >
+
+              <!-- ESCALERA -->
+              <div class="v3-mobile-ladder" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i>
+              </div>
+
+              <div
+                class="v3-mobile-ladder__progress"
+                id="v3MobileLadderProgress"
+                aria-hidden="true"
+              ></div>
+
+              <!-- KIRU DE ESPALDAS -->
+              <div
+                class="v3-mobile-process__kiru"
+                id="v3MobileStairsKiru"
+                aria-hidden="true"
+              >
+                <div class="v3-mobile-process__kiru-glow"></div>
+
+                <img
+                  src="assets/img/kiru/motion/mobile-stairs/kiru-mobile-stairs-01.png"
+                  alt=""
+                  id="v3MobileStairsFrame"
+                >
+              </div>
+
+              <!-- ETAPAS -->
+              <article
+                class="v3-mobile-process__step v3-mobile-process__step--1 is-active"
+                data-mobile-process-step="0"
+              >
+                <b>01</b>
+                <span>IDEA</span>
+                <h3>Nos cuentas qué necesitas.</h3>
+                <p>Entendemos el problema, el contexto y el objetivo real.</p>
+              </article>
+
+              <article
+                class="v3-mobile-process__step v3-mobile-process__step--2"
+                data-mobile-process-step="1"
+              >
+                <b>02</b>
+                <span>ANÁLISIS</span>
+                <h3>Definimos el mejor camino.</h3>
+                <p>Priorizamos lo importante y evitamos complejidad innecesaria.</p>
+              </article>
+
+              <article
+                class="v3-mobile-process__step v3-mobile-process__step--3"
+                data-mobile-process-step="2"
+              >
+                <b>03</b>
+                <span>DISEÑO</span>
+                <h3>Damos forma a la experiencia.</h3>
+                <p>Organizamos estructura, navegación, interfaz y funcionamiento.</p>
+              </article>
+
+              <article
+                class="v3-mobile-process__step v3-mobile-process__step--4"
+                data-mobile-process-step="3"
+              >
+                <b>04</b>
+                <span>DESARROLLO</span>
+                <h3>Construimos y probamos.</h3>
+                <p>Programamos, integramos y ajustamos hasta hacerlo funcionar.</p>
+              </article>
+
+              <article
+                class="v3-mobile-process__step v3-mobile-process__step--5"
+                data-mobile-process-step="4"
+              >
+                <b>05</b>
+                <span>LANZAMIENTO</span>
+                <h3>La solución empieza a trabajar contigo.</h3>
+                <p>Entregamos una base lista para usar y seguir evolucionando.</p>
+              </article>
+
+            </div>
+
+          </div>
+
+</div>
+
       </div>
+
     </section>
 
-    <!-- AUDIOVISUAL -->
+<!-- AUDIOVISUAL -->
     <section class="v2-audiovisual">
       <div class="container v2-audiovisual__grid">
         <div class="v2-audiovisual__copy reveal">
@@ -721,5 +1873,6 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/animations.js"></script>
   <script src="assets/js/home-v2.js"></script>
+  <script src="assets/js/experience-v3.js"></script>
 </body>
 </html>
