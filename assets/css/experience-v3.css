@@ -6545,3 +6545,4033 @@ html.v3-intro-pending .v3-intro,
     transition: none !important;
   }
 }
+
+
+/* =========================================================
+   JAVSEB V3 — PORTAFOLIO SIMPLE
+========================================================= */
+
+.v3-simple-portfolio {
+  position: relative;
+
+  padding:
+    110px 0 120px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(37,174,216,.07),
+      transparent 25%
+    ),
+    #f8fbfd;
+}
+
+.v3-simple-portfolio__head {
+  display: grid;
+
+  grid-template-columns:
+    1.1fr
+    .9fr;
+
+  align-items: end;
+
+  gap: 55px;
+
+  margin-bottom: 35px;
+}
+
+.v3-simple-portfolio__head h2 {
+  max-width: 820px;
+
+  margin: 11px 0 0;
+
+  color: #102d44;
+
+  font:
+    700
+    clamp(40px, 4vw, 58px)
+    / 1.06
+    "Sora",
+    sans-serif;
+
+  letter-spacing: -.05em;
+}
+
+.v3-simple-portfolio__head h2 strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: transparent;
+
+  background:
+    linear-gradient(
+      90deg,
+      #12344d,
+      #159fd4 82%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.v3-simple-portfolio__head > p {
+  max-width: 520px;
+
+  justify-self: end;
+
+  color: #70899e;
+
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+
+/* FILTERS */
+
+.v3-simple-portfolio__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-bottom: 27px;
+}
+
+.v3-simple-filter {
+  padding:
+    9px 13px;
+
+  border:
+    1px solid
+    rgba(20,111,155,.08);
+
+  border-radius:
+    999px;
+
+  color: #688398;
+
+  background:
+    rgba(255,255,255,.80);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform .25s ease,
+    color .25s ease,
+    background .25s ease,
+    border-color .25s ease;
+}
+
+.v3-simple-filter:hover {
+  transform:
+    translateY(-2px);
+
+  color: #137ea9;
+}
+
+.v3-simple-filter.is-active {
+  color: #fff;
+
+  border-color:
+    #148fc4;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1473e6,
+      #18a7d4
+    );
+
+  box-shadow:
+    0 12px 25px
+    rgba(20,126,181,.15);
+}
+
+
+/* GRID */
+
+.v3-simple-portfolio__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0,1fr));
+
+  gap: 22px;
+}
+
+.v3-simple-project {
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(19,116,160,.09);
+
+  border-radius:
+    25px;
+
+  background: #fff;
+
+  box-shadow:
+    0 26px 65px
+    rgba(18,81,118,.075);
+
+  transition:
+    transform .32s cubic-bezier(.16,1,.3,1),
+    box-shadow .3s ease;
+}
+
+.v3-simple-project:hover {
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 32px 75px
+    rgba(18,81,118,.11);
+}
+
+.v3-simple-project.is-hidden {
+  display: none;
+}
+
+
+/* CLUB IMAGE */
+
+.v3-simple-project__media {
+  position: relative;
+
+  height: 350px;
+
+  display: block;
+
+  overflow: hidden;
+
+  background:
+    #eaf2f6;
+}
+
+.v3-simple-project__media img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform .65s cubic-bezier(.16,1,.3,1);
+}
+
+.v3-simple-project:hover
+.v3-simple-project__media img {
+  transform:
+    scale(1.035);
+}
+
+.v3-simple-project__media > span {
+  position: absolute;
+
+  right: 14px;
+  top: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding:
+    8px 10px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.11);
+
+  border-radius:
+    999px;
+
+  color: #fff;
+
+  background:
+    rgba(4,26,39,.73);
+
+  backdrop-filter:
+    blur(10px);
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.v3-simple-project__media > span b {
+  color: #69e1ff;
+}
+
+
+/* QUIZ MEDIA */
+
+.v3-simple-project__quiz-media {
+  min-height: 350px;
+
+  display: grid;
+
+  grid-template-columns:
+    .75fr
+    1.25fr;
+
+  align-items: stretch;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eaf8f2,
+      #f6fbf9
+    );
+}
+
+.v3-simple-project__quiz-brand {
+  display: grid;
+  place-items: center;
+
+  padding: 28px;
+
+  border-right:
+    1px solid
+    rgba(19,126,105,.07);
+}
+
+.v3-simple-project__quiz-brand img {
+  width: min(180px,100%);
+  max-height: 105px;
+
+  object-fit: contain;
+}
+
+.v3-simple-project__video {
+  position: relative;
+
+  min-width: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #103d42,
+      #112f48
+    );
+}
+
+.v3-simple-project__video video {
+  width: 100%;
+  max-height: 285px;
+
+  display: block;
+
+  border-radius: 14px;
+
+  background:
+    #07151f;
+
+  box-shadow:
+    0 18px 38px
+    rgba(0,0,0,.20);
+}
+
+.v3-simple-project__video > span {
+  position: absolute;
+
+  right: 14px;
+  bottom: 13px;
+
+  padding:
+    7px 9px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
+  border-radius:
+    999px;
+
+  color: #8adfd5;
+
+  background:
+    rgba(3,21,31,.70);
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+
+/* BODY */
+
+.v3-simple-project__body {
+  padding:
+    25px 26px 28px;
+}
+
+.v3-simple-project__type {
+  color: #178aa5;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.v3-simple-project__body h3 {
+  margin:
+    8px 0 0;
+
+  color: #17394e;
+
+  font:
+    700 27px/1.15
+    "Sora",
+    sans-serif;
+
+  letter-spacing: -.035em;
+}
+
+.v3-simple-project__body p {
+  margin-top: 11px;
+
+  color: #708794;
+
+  font-size: 10px;
+  line-height: 1.68;
+}
+
+.v3-simple-project__body > small {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #8c9da7;
+
+  font-size: 7px;
+}
+
+.v3-simple-project__body .v2-text-link {
+  display: inline-flex;
+
+  margin-top: 17px;
+}
+
+.v3-simple-project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 16px;
+}
+
+.v3-simple-project__tags i {
+  padding:
+    6px 8px;
+
+  border-radius:
+    8px;
+
+  color: #e8f6fb;
+
+  background:
+    #183e55;
+
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+
+/* EMPTY */
+
+.v3-simple-portfolio__empty {
+  margin-top: 20px;
+
+  padding:
+    48px 25px;
+
+  text-align: center;
+
+  border:
+    1px dashed
+    rgba(20,126,170,.14);
+
+  border-radius:
+    22px;
+
+  background:
+    rgba(255,255,255,.65);
+}
+
+.v3-simple-portfolio__empty > span {
+  color: #1594bf;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.v3-simple-portfolio__empty h3 {
+  max-width: 610px;
+
+  margin:
+    9px auto 0;
+
+  color: #1b4057;
+
+  font:
+    700 24px/1.2
+    "Sora",
+    sans-serif;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .v3-simple-portfolio {
+    padding:
+      80px 0 90px;
+  }
+
+  .v3-simple-portfolio__head {
+    grid-template-columns:
+      1fr;
+
+    gap: 14px;
+  }
+
+  .v3-simple-portfolio__head > p {
+    justify-self: start;
+  }
+
+  .v3-simple-portfolio__grid {
+    grid-template-columns:
+      1fr;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .v3-simple-portfolio {
+    padding:
+      68px 0 75px;
+  }
+
+  .v3-simple-portfolio__head h2 {
+    font-size: 31px;
+  }
+
+  .v3-simple-portfolio__filters {
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+
+    padding-bottom: 4px;
+
+    scrollbar-width: none;
+  }
+
+  .v3-simple-portfolio__filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .v3-simple-filter {
+    flex: 0 0 auto;
+  }
+
+  .v3-simple-project {
+    border-radius: 21px;
+  }
+
+  .v3-simple-project__media {
+    height: 290px;
+  }
+
+  .v3-simple-project__quiz-media {
+    grid-template-columns:
+      1fr;
+
+    min-height: 0;
+  }
+
+  .v3-simple-project__quiz-brand {
+    min-height: 150px;
+
+    border-right: 0;
+    border-bottom:
+      1px solid
+      rgba(19,126,105,.07);
+  }
+
+  .v3-simple-project__video {
+    min-height: 235px;
+  }
+
+  .v3-simple-project__body {
+    padding:
+      21px 19px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .v3-simple-project,
+  .v3-simple-project__media img,
+  .v3-simple-filter {
+    transition: none !important;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB V3 — HOME MÁS DIRECTO
+   Reduce capas visuales y deja que los proyectos hablen.
+========================================================= */
+
+/* ---------------------------------------------------------
+   SERVICIOS DIRECTOS
+--------------------------------------------------------- */
+
+.v3-services-clean {
+  position: relative;
+
+  padding:
+    88px 0 96px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8fbfd,
+      #f1f8fc
+    );
+}
+
+.v3-services-clean__head {
+  display: grid;
+  grid-template-columns:
+    1.1fr
+    .9fr;
+
+  align-items: end;
+
+  gap: 50px;
+
+  margin-bottom:
+    30px;
+}
+
+.v3-services-clean__head h2 {
+  max-width: 760px;
+
+  margin:
+    10px 0 0;
+
+  color: #102d44;
+
+  font:
+    700
+    clamp(38px,3.8vw,54px)
+    /1.06
+    "Sora",
+    sans-serif;
+
+  letter-spacing:
+    -.05em;
+}
+
+.v3-services-clean__head h2 strong {
+  display: block;
+
+  color: transparent;
+
+  background:
+    linear-gradient(
+      90deg,
+      #12344d,
+      #159fd4
+    );
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+}
+
+.v3-services-clean__head > p {
+  max-width: 440px;
+
+  justify-self: end;
+
+  color: #718a9d;
+
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.v3-services-clean__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 10px;
+}
+
+.v3-service-clean {
+  min-height: 155px;
+
+  display: grid;
+
+  grid-template-columns:
+    36px
+    1fr
+    18px;
+
+  align-items: start;
+
+  gap: 10px;
+
+  padding:
+    20px;
+
+  border:
+    1px solid
+    rgba(20,111,155,.07);
+
+  border-radius:
+    18px;
+
+  color: inherit;
+
+  background:
+    rgba(255,255,255,.72);
+
+  text-decoration: none;
+
+  transition:
+    transform .28s cubic-bezier(.16,1,.3,1),
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.v3-service-clean:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(20,146,194,.16);
+
+  box-shadow:
+    0 17px 35px
+    rgba(18,86,119,.07);
+}
+
+.v3-service-clean > span {
+  width: 31px;
+  height: 31px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #168fbd;
+
+  background:
+    #e9f7fc;
+
+  font:
+    700 7px/1
+    "Sora",
+    sans-serif;
+}
+
+.v3-service-clean small {
+  color: #7b94a5;
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.v3-service-clean h3 {
+  margin:
+    7px 0 0;
+
+  color: #173b52;
+
+  font:
+    700 16px/1.2
+    "Sora",
+    sans-serif;
+}
+
+.v3-service-clean p {
+  margin-top: 7px;
+
+  color: #78909f;
+
+  font-size: 9px;
+  line-height: 1.52;
+}
+
+.v3-service-clean > i {
+  color: #9ab0be;
+
+  font-size: 15px;
+  font-style: normal;
+}
+
+.v3-services-clean__footer {
+  margin-top: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   JAVSEB PLAY COMPACTO
+--------------------------------------------------------- */
+
+.v3-play-clean {
+  padding:
+    74px 0;
+
+  background:
+    #071426;
+}
+
+.v3-play-clean__card {
+  display: grid;
+
+  grid-template-columns:
+    .92fr
+    1.08fr;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(105,222,255,.09);
+
+  border-radius:
+    25px;
+
+  background:
+    rgba(255,255,255,.025);
+}
+
+.v3-play-clean__visual {
+  min-height: 330px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 30px;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(43,196,239,.13),
+      transparent 35%
+    ),
+    #061a30;
+}
+
+.v3-play-clean__screen {
+  width: min(390px,100%);
+
+  padding:
+    30px;
+
+  border:
+    1px solid
+    rgba(111,225,255,.11);
+
+  border-radius:
+    20px;
+
+  background:
+    rgba(8,29,50,.90);
+
+  box-shadow:
+    0 23px 50px
+    rgba(0,0,0,.23);
+}
+
+.v3-play-clean__screen > span {
+  color: #5ddffc;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.v3-play-clean__screen > strong {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #fff;
+
+  font:
+    700 22px/1.15
+    "Sora",
+    sans-serif;
+}
+
+.v3-play-clean__screen > div {
+  display: flex;
+
+  gap: 9px;
+
+  margin-top: 22px;
+}
+
+.v3-play-clean__screen i {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(106,223,255,.08);
+
+  border-radius:
+    13px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  font-size: 20px;
+  font-style: normal;
+}
+
+.v3-play-clean__copy {
+  padding:
+    36px 42px;
+}
+
+.v3-play-clean__copy > span {
+  color: #5bdffc;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.v3-play-clean__copy h2 {
+  max-width: 520px;
+
+  margin:
+    10px 0 0;
+
+  color: #fff;
+
+  font:
+    700
+    clamp(30px,3vw,42px)
+    /1.08
+    "Sora",
+    sans-serif;
+
+  letter-spacing:
+    -.04em;
+}
+
+.v3-play-clean__copy p {
+  max-width: 520px;
+
+  margin-top: 14px;
+
+  color: #8da5ba;
+
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.v3-play-clean__actions {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   COMPACTAR PORTAFOLIO EXISTENTE
+--------------------------------------------------------- */
+
+.v3-simple-portfolio {
+  padding:
+    84px 0 90px;
+}
+
+.v3-simple-portfolio__head {
+  margin-bottom:
+    26px;
+}
+
+.v3-simple-project__media,
+.v3-simple-project__quiz-media {
+  min-height: 0;
+}
+
+.v3-simple-project__media {
+  height: 290px;
+}
+
+.v3-simple-project__quiz-media {
+  min-height: 290px;
+}
+
+.v3-simple-project__body {
+  padding:
+    21px 23px 24px;
+}
+
+.v3-simple-project__body h3 {
+  font-size: 24px;
+}
+
+
+/* ---------------------------------------------------------
+   COMPACTAR GOAL LAB
+--------------------------------------------------------- */
+
+.v3-goal-lab {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.v3-goal-lab__result {
+  min-height: 575px;
+}
+
+.v3-goal-lab__body {
+  grid-template-rows:
+    290px
+    1fr;
+}
+
+.v3-goal-lab__tab {
+  min-height: 76px;
+}
+
+
+/* ---------------------------------------------------------
+   COMPACTAR PROCESO
+--------------------------------------------------------- */
+
+.v3-stairs {
+  padding:
+    82px 0 88px;
+}
+
+.v3-stairs__head {
+  margin-bottom: 46px;
+}
+
+@media (min-width: 901px) {
+  .v3-stairs__scene {
+    height: 790px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   COMPACTAR AUDIOVISUAL
+--------------------------------------------------------- */
+
+.v2-audiovisual {
+  padding-top: 76px !important;
+  padding-bottom: 76px !important;
+}
+
+.v2-audiovisual__copy p {
+  max-width: 510px;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .v3-services-clean {
+    padding:
+      72px 0;
+  }
+
+  .v3-services-clean__head {
+    grid-template-columns:
+      1fr;
+
+    gap: 12px;
+  }
+
+  .v3-services-clean__head > p {
+    justify-self: start;
+  }
+
+  .v3-services-clean__grid {
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .v3-play-clean__card {
+    grid-template-columns:
+      1fr;
+  }
+
+  .v3-play-clean__visual {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .v3-services-clean {
+    padding:
+      62px 0;
+  }
+
+  .v3-services-clean__head h2 {
+    font-size: 30px;
+  }
+
+  .v3-services-clean__grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .v3-service-clean {
+    min-height: 122px;
+  }
+
+  .v3-play-clean {
+    padding:
+      56px 0;
+  }
+
+  .v3-play-clean__card {
+    border-radius: 21px;
+  }
+
+  .v3-play-clean__visual {
+    min-height: 225px;
+
+    padding: 20px;
+  }
+
+  .v3-play-clean__screen {
+    padding: 22px;
+  }
+
+  .v3-play-clean__screen > strong {
+    font-size: 18px;
+  }
+
+  .v3-play-clean__copy {
+    padding:
+      25px 20px;
+  }
+
+  .v3-play-clean__copy h2 {
+    font-size: 28px;
+  }
+
+  .v3-play-clean__actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .v3-simple-portfolio {
+    padding:
+      65px 0 70px;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB V3 — HOME EDITORIAL / DIRECTO
+========================================================= */
+
+.v3-work-catalog {
+  padding: 82px 0 88px;
+  background: #f6fafc;
+}
+
+.v3-work-catalog__head {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: end;
+  gap: 45px;
+  margin-bottom: 27px;
+}
+
+.v3-work-catalog__head h2 {
+  max-width: 780px;
+  margin: 9px 0 0;
+  color: #102d44;
+  font: 700 clamp(36px,3.6vw,52px)/1.07 "Sora", sans-serif;
+  letter-spacing: -.05em;
+}
+
+.v3-work-catalog__head h2 strong {
+  display: block;
+  color: #168fc2;
+}
+
+.v3-work-catalog__head > p {
+  max-width: 440px;
+  justify-self: end;
+  color: #6c8799;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.v3-work-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 9px;
+}
+
+.v3-work-item {
+  min-height: 205px;
+  display: flex;
+  flex-direction: column;
+  padding: 19px;
+  border: 1px solid rgba(20,111,155,.075);
+  border-radius: 17px;
+  color: inherit;
+  background: #fff;
+  text-decoration: none;
+  transition: transform .27s ease, border-color .27s ease, box-shadow .27s ease;
+}
+
+.v3-work-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(20,146,194,.18);
+  box-shadow: 0 18px 34px rgba(18,86,119,.07);
+}
+
+.v3-work-item > span {
+  color: #168fc2;
+  font: 700 8px/1 "Sora", sans-serif;
+}
+
+.v3-work-item small {
+  margin-top: 24px;
+  color: #8499a8;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.v3-work-item h3 {
+  margin: 6px 0 0;
+  color: #173b52;
+  font: 700 17px/1.2 "Sora", sans-serif;
+}
+
+.v3-work-item p {
+  margin-top: 8px;
+  color: #728b9a;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.v3-work-item b {
+  margin-top: auto;
+  padding-top: 16px;
+  color: #168fc2;
+  font-size: 8px;
+}
+
+.v3-work-item--catalog {
+  background:
+    linear-gradient(145deg, #0b2943, #103e58);
+}
+
+.v3-work-item--catalog > span,
+.v3-work-item--catalog b {
+  color: #65ddfa;
+}
+
+.v3-work-item--catalog small {
+  color: #779bad;
+}
+
+.v3-work-item--catalog h3 {
+  color: #fff;
+}
+
+.v3-work-item--catalog p {
+  color: #91aab8;
+}
+
+
+/* GUIDE CTA */
+
+.v3-guide-cta {
+  padding: 54px 0 18px;
+  background: #f8fbfd;
+}
+
+.v3-guide-cta__box {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 35px;
+  padding: 30px 34px;
+  border: 1px solid rgba(20,119,163,.09);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 85% 30%, rgba(35,180,222,.09), transparent 25%),
+    #fff;
+  box-shadow: 0 20px 50px rgba(21,83,112,.06);
+}
+
+.v3-guide-cta__box > div > span {
+  color: #168fc2;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.v3-guide-cta__box h2 {
+  max-width: 720px;
+  margin: 8px 0 0;
+  color: #173b52;
+  font: 700 clamp(25px,2.5vw,36px)/1.13 "Sora", sans-serif;
+  letter-spacing: -.04em;
+}
+
+.v3-guide-cta__box h2 strong {
+  display: block;
+  color: #168fc2;
+}
+
+.v3-guide-cta__box p {
+  max-width: 650px;
+  margin-top: 9px;
+  color: #748d9d;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+
+/* GUIDE PAGE */
+
+.v3-guide-page {
+  background: #f7fbfd;
+}
+
+.v3-guide-intro {
+  padding: 145px 0 45px;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(39,190,232,.10), transparent 24%),
+    #f7fbfd;
+}
+
+.v3-guide-intro span {
+  color: #168fc2;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.v3-guide-intro h1 {
+  max-width: 850px;
+  margin: 11px 0 0;
+  color: #12334a;
+  font: 700 clamp(38px,4vw,58px)/1.06 "Sora", sans-serif;
+  letter-spacing: -.05em;
+}
+
+.v3-guide-intro h1 strong {
+  display: block;
+  color: #168fc2;
+}
+
+.v3-guide-intro p {
+  margin-top: 13px;
+  color: #698799;
+  font-size: 11px;
+}
+
+.v3-guide-page .v3-goal-lab {
+  padding-top: 35px;
+}
+
+/* Más contraste en el resultado de la guía */
+.v3-guide-page .v3-goal-lab__copy {
+  background: rgba(5,24,43,.88);
+}
+
+.v3-guide-page .v3-goal-lab__copy #goalTitle {
+  color: #ffffff !important;
+}
+
+.v3-guide-page .v3-goal-lab__copy #goalDescription {
+  color: #c1d5e3 !important;
+  font-size: 10px;
+  line-height: 1.68;
+}
+
+.v3-guide-page .v2-goal-result__label {
+  color: #64e0ff !important;
+}
+
+.v3-guide-page .v2-goal-pills span {
+  color: #d7e9f3 !important;
+  border-color: rgba(102,224,255,.15) !important;
+  background: rgba(102,224,255,.055) !important;
+}
+
+.v3-guide-result__footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+
+/* CATALOG PAGE */
+
+.v3-catalog-page {
+  background: #f7fbfd;
+}
+
+.v3-catalog-hero {
+  padding: 150px 0 70px;
+}
+
+.v3-catalog-hero > .container > span {
+  color: #168fc2;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.v3-catalog-hero h1 {
+  max-width: 850px;
+  margin: 10px 0 0;
+  color: #14364c;
+  font: 700 clamp(40px,4vw,58px)/1.06 "Sora", sans-serif;
+  letter-spacing: -.05em;
+}
+
+.v3-catalog-hero h1 strong {
+  color: #168fc2;
+}
+
+.v3-catalog-hero p {
+  max-width: 600px;
+  margin-top: 13px;
+  color: #6f8999;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.v3-catalog-list {
+  padding: 0 0 100px;
+}
+
+.v3-catalog-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+
+.v3-catalog-list article {
+  min-height: 245px;
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
+  border: 1px solid rgba(20,111,155,.08);
+  border-radius: 19px;
+  background: #fff;
+}
+
+.v3-catalog-list article > span {
+  color: #168fc2;
+  font: 700 8px/1 "Sora", sans-serif;
+}
+
+.v3-catalog-list article small {
+  margin-top: 34px;
+  color: #8398a6;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.v3-catalog-list article h2 {
+  margin: 7px 0 0;
+  color: #173b52;
+  font: 700 21px/1.2 "Sora", sans-serif;
+}
+
+.v3-catalog-list article p {
+  margin-top: 9px;
+  color: #728a99;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.v3-catalog-list article b {
+  margin-top: auto;
+  color: #9aabb5;
+  font-size: 7px;
+}
+
+
+/* Keep portfolio concise */
+.v3-simple-portfolio {
+  padding-top: 76px;
+  padding-bottom: 76px;
+}
+
+.v3-simple-project__body p {
+  max-width: 570px;
+}
+
+
+/* Home process now follows guide directly */
+.v3-stairs {
+  padding-top: 68px;
+}
+
+
+/* Mobile */
+@media (max-width: 900px) {
+  .v3-work-catalog__head {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .v3-work-catalog__head > p {
+    justify-self: start;
+  }
+
+  .v3-work-catalog__grid,
+  .v3-catalog-list__grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .v3-work-catalog {
+    padding: 62px 0 68px;
+  }
+
+  .v3-work-catalog__head h2 {
+    font-size: 30px;
+  }
+
+  .v3-work-catalog__grid,
+  .v3-catalog-list__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v3-work-item {
+    min-height: 176px;
+  }
+
+  .v3-guide-cta {
+    padding-top: 38px;
+  }
+
+  .v3-guide-cta__box {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+  }
+
+  .v3-guide-intro {
+    padding: 120px 0 25px;
+  }
+
+  .v3-guide-intro h1,
+  .v3-catalog-hero h1 {
+    font-size: 34px;
+  }
+
+  .v3-catalog-hero {
+    padding: 125px 0 50px;
+  }
+
+  .v3-catalog-list {
+    padding-bottom: 75px;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB V3 — REFINAMIENTO DE PORTADA
+========================================================= */
+
+/* Intro: una sola frase, más elegante y respirada */
+.v3-intro__statement {
+  max-width: 900px !important;
+  margin-top: 30px !important;
+  font-size: clamp(38px, 5vw, 72px) !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: .035em !important;
+}
+
+.v3-intro__brandline span {
+  font-weight: 600 !important;
+  letter-spacing: .28em !important;
+}
+
+/* Hero más corporativo */
+.v3-hero-copy--clean {
+  max-width: 610px;
+}
+
+.v3-hero-brand-logo {
+  width: min(360px, 78%);
+  max-height: 180px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  margin: 0 0 24px;
+}
+
+.v3-hero-clean-label {
+  color: #168fc2;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.v3-hero-title--clean {
+  max-width: 650px;
+  margin-top: 13px;
+  font-size: clamp(39px, 4.8vw, 64px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.055em !important;
+}
+
+.v3-hero-title--clean strong {
+  display: block;
+  margin-top: 7px;
+  color: #168fc2;
+}
+
+.v3-hero-lead--clean {
+  max-width: 540px;
+  margin-top: 18px !important;
+  color: #607d90 !important;
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+}
+
+.v3-hero-actions--clean {
+  margin-top: 24px !important;
+}
+
+/* Make mockup more like one elegant product sample */
+.v3-hero-stage {
+  min-height: 540px !important;
+}
+
+.v3-store-window {
+  width: min(590px, 92%) !important;
+  transform: translate3d(0,0,0) scale(.93);
+  box-shadow:
+    0 28px 70px rgba(20,72,107,.13) !important;
+}
+
+.v3-kiru-final {
+  width: 168px !important;
+}
+
+.v3-hero-chip {
+  display: none !important;
+}
+
+
+/* =========================================================
+   LO QUE HACEMOS — ICONOGRAFÍA JAVSEB
+========================================================= */
+
+.v3-work-catalog__grid {
+  grid-template-columns: repeat(3,1fr) !important;
+}
+
+.v3-work-item {
+  min-height: 250px !important;
+  padding: 20px !important;
+}
+
+.v3-work-item__icon {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 19px;
+
+  border: 1px solid rgba(22,143,194,.13);
+  border-radius: 17px;
+
+  color: #168fc2;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22,143,194,.07),
+      rgba(22,143,194,.015)
+    );
+
+  box-shadow:
+    inset 0 0 0 5px rgba(22,143,194,.018);
+}
+
+.v3-work-item__icon svg {
+  width: 34px;
+  height: 34px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.v3-work-item small {
+  margin-top: 0 !important;
+}
+
+.v3-work-item--catalog .v3-work-item__icon {
+  color: #66e1ff;
+  border-color: rgba(102,225,255,.14);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(102,225,255,.09),
+      rgba(102,225,255,.025)
+    );
+}
+
+@media (max-width: 900px) {
+  .v3-work-catalog__grid {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  .v3-hero-brand-logo {
+    width: min(320px, 70%);
+  }
+
+  .v3-hero-stage {
+    min-height: 500px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .v3-intro__statement {
+    font-size: 37px !important;
+    line-height: 1.06 !important;
+  }
+
+  .v3-hero-brand-logo {
+    width: 245px;
+    max-height: 125px;
+    margin-bottom: 18px;
+  }
+
+  .v3-hero-title--clean {
+    font-size: 37px !important;
+  }
+
+  .v3-hero-stage {
+    min-height: 450px !important;
+  }
+
+  .v3-store-window {
+    width: 94% !important;
+    transform: scale(.92);
+  }
+
+  .v3-work-catalog__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .v3-work-item {
+    min-height: 225px !important;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB V3 — PORTADA DE MARCA
+   Logo + Kiru + una sola línea dinámica.
+========================================================= */
+
+.v3-brand-hero {
+  min-height: min(830px, 92vh);
+
+  display: flex;
+  align-items: center;
+
+  padding:
+    115px 0 78px !important;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 79% 28%, rgba(28,176,226,.12), transparent 27%),
+    radial-gradient(circle at 12% 76%, rgba(20,113,230,.055), transparent 24%),
+    linear-gradient(135deg, #ffffff, #f5fbff 72%);
+}
+
+.v3-brand-hero .v2-grid-bg {
+  opacity: .20;
+}
+
+.v3-brand-hero__inner {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0,1.05fr)
+    minmax(360px,.95fr);
+
+  grid-template-areas:
+    "brand kiru"
+    "ticker ticker";
+
+  align-items: center;
+
+  column-gap: 34px;
+  row-gap: 6px;
+}
+
+.v3-brand-hero__brand {
+  grid-area: brand;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 410px;
+
+  padding-left: 1.5%;
+}
+
+.v3-brand-hero__logo {
+  display: block;
+
+  width: min(610px, 96%);
+  max-height: 390px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  filter:
+    drop-shadow(
+      0 18px 28px
+      rgba(27,70,99,.055)
+    );
+}
+
+
+/* KIRU AREA */
+
+.v3-brand-hero__kiru-stage {
+  grid-area: kiru;
+
+  position: relative;
+
+  min-height: 465px;
+
+  overflow: visible;
+  isolation: isolate;
+}
+
+.v3-brand-hero__kiru-stage::before {
+  content: "";
+
+  position: absolute;
+
+  width: 355px;
+  height: 355px;
+
+  left: 50%;
+  bottom: 23px;
+
+  transform:
+    translateX(-50%);
+
+  border:
+    1px solid
+    rgba(20,148,201,.075);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 42px rgba(20,148,201,.018),
+    0 0 0 88px rgba(20,148,201,.012);
+
+  pointer-events: none;
+}
+
+.v3-brand-hero__kiru-stage .v2-hero__halo {
+  width: 370px;
+  height: 370px;
+
+  left: 50% !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: 5px !important;
+
+  transform:
+    translateX(-50%);
+
+  opacity: .45;
+}
+
+.v3-brand-hero__kiru-final {
+  position: absolute !important;
+  z-index: 8;
+
+  width: 310px !important;
+  max-width: none !important;
+
+  height: auto;
+
+  left: 50% !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: -3px !important;
+
+  transform:
+    translateX(-50%);
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 27px 30px
+      rgba(18,62,91,.18)
+    );
+}
+
+body.v3-kiru-arrived
+.v3-brand-hero__kiru-final {
+  animation:
+    v3BrandKiruArrival
+    .85s
+    cubic-bezier(.16,1,.3,1)
+    both !important;
+}
+
+@keyframes v3BrandKiruArrival {
+  from {
+    opacity: 0;
+    transform:
+      translate3d(-50%,18px,0)
+      scale(.94);
+    filter:
+      blur(4px)
+      drop-shadow(
+        0 27px 30px
+        rgba(18,62,91,0)
+      );
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translate3d(-50%,0,0)
+      scale(1);
+    filter:
+      blur(0)
+      drop-shadow(
+        0 27px 30px
+        rgba(18,62,91,.18)
+      );
+  }
+}
+
+
+/* WALKER: same animation, larger visual path */
+
+.v3-brand-hero__kiru-stage
+.v3-kiru-walker {
+  left: -120px;
+  bottom: 5px;
+
+  width: 256px;
+  height: 350px;
+
+  z-index: 10;
+}
+
+
+/* SMALL ROTATING LINE */
+
+.v3-brand-hero__ticker {
+  grid-area: ticker;
+
+  justify-self: center;
+
+  min-width: 350px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  margin-top: -10px;
+
+  padding:
+    10px 16px;
+
+  border:
+    1px solid
+    rgba(19,126,175,.075);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,.70);
+
+  box-shadow:
+    0 12px 30px
+    rgba(18,78,108,.045);
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+}
+
+.v3-brand-hero__ticker > span {
+  color: #8aa0af;
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .17em;
+}
+
+.v3-brand-hero__ticker > strong {
+  min-width: 155px;
+
+  color: #168fc2;
+
+  font:
+    700 10px/1.2
+    "Sora",
+    sans-serif;
+
+  transition:
+    opacity .34s ease,
+    transform .34s ease,
+    filter .34s ease;
+}
+
+.v3-brand-hero__ticker > strong.is-changing {
+  opacity: 0;
+
+  transform:
+    translateY(5px);
+
+  filter:
+    blur(3px);
+}
+
+
+/* Remove all old Hero content that could survive old CSS */
+.v3-brand-hero
+.v3-store-window,
+.v3-brand-hero
+.v3-hero-chip,
+.v3-brand-hero
+.v3-hero-copy,
+.v3-brand-hero
+.v3-hero-actions {
+  display: none !important;
+}
+
+
+/* MOBILE: Kiru greeting remains the hero mascot */
+
+@media (max-width: 900px) {
+
+  .v3-brand-hero {
+    min-height: 790px;
+
+    padding:
+      105px 0 62px !important;
+  }
+
+  .v3-brand-hero__inner {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "brand"
+      "kiru"
+      "ticker";
+
+    row-gap: 0;
+
+    text-align: center;
+  }
+
+  .v3-brand-hero__brand {
+    min-height: 210px;
+
+    justify-content: center;
+
+    padding-left: 0;
+  }
+
+  .v3-brand-hero__logo {
+    width: min(500px, 86%);
+
+    object-position: center;
+  }
+
+  .v3-brand-hero__kiru-stage {
+    min-height: 390px;
+  }
+
+  .v3-brand-hero__kiru-final {
+    width: 275px !important;
+  }
+
+  .v3-brand-hero__ticker {
+    margin-top: 2px;
+  }
+}
+
+
+@media (max-width: 640px) {
+
+  .v3-brand-hero {
+    min-height: 720px;
+
+    padding:
+      94px 0 42px !important;
+  }
+
+  .v3-brand-hero__brand {
+    min-height: 165px;
+  }
+
+  .v3-brand-hero__logo {
+    width: min(335px, 90%);
+    max-height: 165px;
+  }
+
+  .v3-brand-hero__kiru-stage {
+    min-height: 375px;
+  }
+
+  /*
+   * The desktop final pose stays hidden because mobile
+   * uses the animated greeting frames.
+   */
+  #v3KiruFinal {
+    display: none !important;
+  }
+
+  .v3-mobile-hero-kiru {
+    position: absolute !important;
+    z-index: 12 !important;
+
+    display: block !important;
+
+    width: 290px !important;
+    height: 355px !important;
+
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: -5px !important;
+
+    transform:
+      translateX(-50%) !important;
+
+    pointer-events: none;
+  }
+
+  .v3-mobile-hero-kiru > img {
+    width: 270px !important;
+    height: 345px !important;
+
+    display: block;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    filter:
+      drop-shadow(
+        0 24px 27px
+        rgba(15,60,90,.17)
+      );
+  }
+
+  .v3-mobile-hero-kiru__glow {
+    width: 180px !important;
+    height: 34px !important;
+    bottom: 3px !important;
+  }
+
+  .v3-mobile-hero-kiru__bubble {
+    display: none !important;
+  }
+
+  .v3-brand-hero__kiru-stage::before {
+    width: 270px;
+    height: 270px;
+
+    bottom: 22px;
+  }
+
+  .v3-brand-hero__kiru-stage
+  .v2-hero__halo {
+    width: 285px !important;
+    height: 285px !important;
+  }
+
+  .v3-brand-hero__ticker {
+    min-width: 0;
+
+    width: fit-content;
+    max-width: 94%;
+
+    gap: 8px;
+
+    margin-top: -4px;
+
+    padding:
+      9px 13px;
+  }
+
+  .v3-brand-hero__ticker > strong {
+    min-width: 135px;
+
+    font-size: 9px;
+  }
+
+  .v3-brand-hero .v2-scroll-note {
+    bottom: 11px;
+  }
+}
+
+
+@media (max-width: 390px) {
+
+  .v3-brand-hero__logo {
+    width: 300px;
+  }
+
+  .v3-mobile-hero-kiru {
+    width: 255px !important;
+    height: 330px !important;
+  }
+
+  .v3-mobile-hero-kiru > img {
+    width: 245px !important;
+    height: 320px !important;
+  }
+
+  .v3-brand-hero__ticker > span {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB V3 — PORTADA FINAL REFINADA
+========================================================= */
+
+/*
+ * The transparent JAVSEB lockup becomes the main graphic.
+ * It spans most of the left side without looking like a card.
+ */
+.v3-brand-hero {
+  min-height: min(860px, 94vh) !important;
+
+  padding:
+    100px 0 62px !important;
+}
+
+.v3-brand-hero__inner {
+  grid-template-columns:
+    minmax(0,1.18fr)
+    minmax(410px,.82fr) !important;
+
+  column-gap:
+    10px !important;
+
+  row-gap:
+    0 !important;
+}
+
+.v3-brand-hero__brand {
+  min-height:
+    510px !important;
+
+  padding-left:
+    0 !important;
+}
+
+.v3-brand-hero__logo {
+  width:
+    min(760px, 100%) !important;
+
+  max-height:
+    485px !important;
+
+  object-position:
+    center left !important;
+
+  filter:
+    drop-shadow(
+      0 22px 35px
+      rgba(20,72,106,.055)
+    ) !important;
+}
+
+
+/* Kiru's destination is now a work scene, so allow more room. */
+.v3-brand-hero__kiru-stage {
+  min-height:
+    530px !important;
+}
+
+.v3-brand-hero__kiru-stage::before {
+  width:
+    420px !important;
+
+  height:
+    420px !important;
+
+  bottom:
+    18px !important;
+}
+
+.v3-brand-hero__kiru-stage
+.v2-hero__halo {
+  width:
+    430px !important;
+
+  height:
+    430px !important;
+
+  bottom:
+    0 !important;
+}
+
+.v3-brand-hero__kiru-final {
+  width:
+    405px !important;
+
+  max-height:
+    500px !important;
+
+  bottom:
+    -10px !important;
+
+  object-fit:
+    contain;
+
+  object-position:
+    center bottom;
+}
+
+
+/*
+ * Stable final work pose gets a very small breathing motion.
+ * The chair/laptop stay visually anchored.
+ */
+body.v3-kiru-working
+.v3-brand-hero__kiru-final {
+  animation:
+    v3KiruWorkingBreath
+    4.4s
+    ease-in-out
+    infinite !important;
+}
+
+@keyframes v3KiruWorkingBreath {
+  0%,
+  100% {
+    transform:
+      translate3d(-50%,0,0);
+  }
+
+  50% {
+    transform:
+      translate3d(-50%,-2px,0);
+  }
+}
+
+
+/* =========================================================
+   DYNAMIC SERVICE LINE — ~3.5× LARGER
+========================================================= */
+
+.v3-brand-hero__ticker {
+  min-width:
+    560px !important;
+
+  gap:
+    15px !important;
+
+  margin-top:
+    -12px !important;
+
+  padding:
+    14px 20px !important;
+
+  border:
+    0 !important;
+
+  border-radius:
+    0 !important;
+
+  background:
+    transparent !important;
+
+  box-shadow:
+    none !important;
+
+  backdrop-filter:
+    none !important;
+
+  -webkit-backdrop-filter:
+    none !important;
+}
+
+.v3-brand-hero__ticker > span {
+  color:
+    #7e95a5 !important;
+
+  font-size:
+    9px !important;
+
+  letter-spacing:
+    .20em !important;
+}
+
+.v3-brand-hero__ticker > strong {
+  min-width:
+    300px !important;
+
+  color:
+    #168fc2 !important;
+
+  font:
+    600 32px/1.1
+    "Sora",
+    sans-serif !important;
+
+  letter-spacing:
+    -.035em;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .v3-brand-hero__inner {
+    grid-template-columns:
+      minmax(0,1fr)
+      minmax(360px,.78fr) !important;
+  }
+
+  .v3-brand-hero__logo {
+    width:
+      min(650px,100%) !important;
+  }
+
+  .v3-brand-hero__kiru-final {
+    width:
+      360px !important;
+  }
+
+  .v3-brand-hero__ticker > strong {
+    font-size:
+      28px !important;
+  }
+}
+
+
+@media (max-width: 900px) {
+
+  .v3-brand-hero {
+    min-height:
+      820px !important;
+  }
+
+  .v3-brand-hero__inner {
+    grid-template-columns:
+      1fr !important;
+
+    grid-template-areas:
+      "brand"
+      "kiru"
+      "ticker" !important;
+  }
+
+  .v3-brand-hero__brand {
+    min-height:
+      220px !important;
+
+    justify-content:
+      center !important;
+  }
+
+  .v3-brand-hero__logo {
+    width:
+      min(580px,88%) !important;
+
+    object-position:
+      center !important;
+  }
+
+  .v3-brand-hero__kiru-stage {
+    min-height:
+      420px !important;
+  }
+
+  .v3-brand-hero__ticker {
+    min-width:
+      0 !important;
+
+    width:
+      100% !important;
+
+    justify-content:
+      center !important;
+  }
+}
+
+
+@media (max-width: 640px) {
+
+  .v3-brand-hero {
+    min-height:
+      765px !important;
+
+    padding:
+      88px 0 38px !important;
+  }
+
+  .v3-brand-hero__brand {
+    min-height:
+      170px !important;
+  }
+
+  .v3-brand-hero__logo {
+    width:
+      min(350px,92%) !important;
+
+    max-height:
+      170px !important;
+  }
+
+  .v3-brand-hero__kiru-stage {
+    min-height:
+      385px !important;
+  }
+
+  .v3-brand-hero__ticker {
+    flex-direction:
+      column;
+
+    gap:
+      5px !important;
+
+    margin-top:
+      -5px !important;
+
+    padding:
+      8px 10px !important;
+  }
+
+  .v3-brand-hero__ticker > span {
+    font-size:
+      7px !important;
+  }
+
+  .v3-brand-hero__ticker > strong {
+    min-width:
+      0 !important;
+
+    text-align:
+      center;
+
+    font-size:
+      22px !important;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB — FOOTER MINIMAL
+   Solo redes sociales + WhatsApp
+========================================================= */
+
+.v3-footer-minimal {
+  position: relative;
+
+  padding:
+    24px 0;
+
+  border-top:
+    1px solid
+    rgba(22,99,143,.07);
+
+  background:
+    #f8fbfd;
+}
+
+.v3-footer-minimal__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+
+/* SOCIALS */
+
+.v3-footer-minimal__socials {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.v3-footer-minimal__socials a {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  min-height: 42px;
+
+  padding:
+    7px 11px 7px 8px;
+
+  border:
+    1px solid
+    rgba(22,105,150,.07);
+
+  border-radius:
+    999px;
+
+  color:
+    #516f82;
+
+  background:
+    rgba(255,255,255,.76);
+
+  text-decoration:
+    none;
+
+  transition:
+    transform .24s ease,
+    border-color .24s ease,
+    color .24s ease,
+    background .24s ease;
+}
+
+.v3-footer-minimal__socials a:hover {
+  transform:
+    translateY(-2px);
+
+  color:
+    #127fae;
+
+  border-color:
+    rgba(18,143,194,.16);
+
+  background:
+    #fff;
+}
+
+.v3-footer-minimal__socials a > span {
+  width: 27px;
+  height: 27px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius:
+    50%;
+
+  color:
+    #168fc2;
+
+  background:
+    rgba(22,143,194,.07);
+
+  font:
+    700 12px/1
+    "Sora",
+    sans-serif;
+}
+
+.v3-footer-minimal__socials a > b {
+  font:
+    700 8px/1
+    "Inter",
+    sans-serif;
+}
+
+
+/* WHATSAPP */
+
+.v3-footer-minimal__whatsapp {
+  min-width:
+    190px;
+
+  display: grid;
+
+  grid-template-columns:
+    34px
+    1fr
+    20px;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    9px 12px;
+
+  border:
+    1px solid
+    rgba(25,143,112,.11);
+
+  border-radius:
+    999px;
+
+  color:
+    #17483d;
+
+  background:
+    #f2fbf7;
+
+  text-decoration:
+    none;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.v3-footer-minimal__whatsapp:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(25,143,112,.20);
+
+  box-shadow:
+    0 12px 28px
+    rgba(27,114,91,.08);
+}
+
+.v3-footer-minimal__whatsapp > span {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius:
+    50%;
+
+  color:
+    #fff;
+
+  background:
+    #1a9d73;
+
+  font-size:
+    15px;
+}
+
+.v3-footer-minimal__whatsapp > div {
+  display: grid;
+
+  gap: 2px;
+}
+
+.v3-footer-minimal__whatsapp small {
+  color:
+    #6e988b;
+
+  font-size:
+    5px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    .13em;
+}
+
+.v3-footer-minimal__whatsapp strong {
+  color:
+    #17483d;
+
+  font:
+    700 9px/1.2
+    "Sora",
+    sans-serif;
+}
+
+.v3-footer-minimal__whatsapp > b {
+  justify-self:
+    end;
+
+  color:
+    #1a9d73;
+
+  font-size:
+    16px;
+}
+
+
+/* Hide legacy footer/mobile CTA if old CSS still exists */
+.v2-mobile-cta {
+  display:
+    none !important;
+}
+
+
+@media (max-width: 760px) {
+
+  .v3-footer-minimal {
+    padding:
+      20px 0 24px;
+  }
+
+  .v3-footer-minimal__inner {
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+  }
+
+  .v3-footer-minimal__socials {
+    display:
+      grid;
+
+    grid-template-columns:
+      repeat(4,1fr);
+  }
+
+  .v3-footer-minimal__socials a {
+    min-height:
+      62px;
+
+    justify-content:
+      center;
+
+    flex-direction:
+      column;
+
+    gap:
+      5px;
+
+    padding:
+      8px 5px;
+
+    border-radius:
+      14px;
+  }
+
+  .v3-footer-minimal__socials a > b {
+    font-size:
+      6px;
+  }
+
+  .v3-footer-minimal__whatsapp {
+    width:
+      100%;
+  }
+}
+
+
+@media (max-width: 390px) {
+
+  .v3-footer-minimal__socials a > b {
+    display:
+      none;
+  }
+
+  .v3-footer-minimal__socials a {
+    min-height:
+      48px;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB — AJUSTE FINAL DE PORTADA / HEADER / FOOTER
+========================================================= */
+
+/* Header: symbol only, so the full logo belongs to the cover. */
+.header .logo {
+  width: 58px !important;
+  min-width: 58px !important;
+}
+
+.v3-header-symbol {
+  width: 52px !important;
+  height: 52px !important;
+  max-width: 52px !important;
+  max-height: 52px !important;
+
+  object-fit: contain !important;
+
+  filter:
+    drop-shadow(
+      0 7px 12px
+      rgba(18,89,132,.08)
+    );
+}
+
+
+/* ---------------------------------------------------------
+   COVER DETAILS
+--------------------------------------------------------- */
+
+.v3-brand-hero {
+  position: relative;
+}
+
+.v3-brand-hero::after {
+  content: "</>";
+
+  position: absolute;
+  z-index: 0;
+
+  left: 4%;
+  bottom: -9%;
+
+  color: rgba(19,139,190,.026);
+
+  font:
+    800 clamp(180px, 20vw, 330px)/1
+    "Sora",
+    sans-serif;
+
+  letter-spacing: -.10em;
+
+  pointer-events: none;
+}
+
+.v3-brand-hero__cover-top {
+  position: absolute;
+  z-index: 5;
+
+  left: 50%;
+  top: 104px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+.v3-brand-hero__cover-top span,
+.v3-brand-hero__cover-top b {
+  color: #7893a5;
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.v3-brand-hero__cover-top b {
+  color: #168fc2;
+}
+
+.v3-brand-hero__cover-bottom {
+  position: absolute;
+  z-index: 5;
+
+  left: 50%;
+  bottom: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+.v3-brand-hero__cover-bottom span {
+  color: #7a94a5;
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.v3-brand-hero__cover-bottom i {
+  width: 18px;
+  height: 1px;
+
+  background:
+    rgba(22,143,194,.18);
+}
+
+
+/* Give the main lockup more room but keep it editorial. */
+.v3-brand-hero__logo {
+  width: min(720px, 98%) !important;
+  max-height: 455px !important;
+}
+
+.v3-brand-hero__brand {
+  position: relative;
+}
+
+.v3-brand-hero__brand::after {
+  content: "TECNOLOGÍA PARA TODOS";
+
+  position: absolute;
+
+  left: 3px;
+  bottom: 56px;
+
+  color: #7892a3;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .24em;
+}
+
+
+/* Rotating line: large enough to read, but not another headline. */
+.v3-brand-hero__ticker {
+  margin-top: -20px !important;
+}
+
+.v3-brand-hero__ticker > strong {
+  font-size: 29px !important;
+}
+
+
+/* ---------------------------------------------------------
+   PROCESS END — remove the large dark empty tail.
+--------------------------------------------------------- */
+
+.v3-stairs {
+  padding-bottom: 34px !important;
+}
+
+@media (min-width: 901px) {
+  .v3-stairs__scene {
+    height: 700px !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER — slightly larger, still minimal.
+--------------------------------------------------------- */
+
+.v3-footer-minimal {
+  padding:
+    31px 0 !important;
+}
+
+.v3-footer-minimal__socials {
+  gap:
+    10px !important;
+}
+
+.v3-footer-minimal__socials a {
+  min-height:
+    50px !important;
+
+  padding:
+    9px 15px 9px 9px !important;
+}
+
+.v3-footer-minimal__socials a > span {
+  width:
+    32px !important;
+
+  height:
+    32px !important;
+
+  font-size:
+    14px !important;
+}
+
+.v3-footer-minimal__socials a > b {
+  font-size:
+    9px !important;
+}
+
+.v3-footer-minimal__whatsapp {
+  min-width:
+    225px !important;
+
+  grid-template-columns:
+    40px 1fr 22px !important;
+
+  padding:
+    10px 14px !important;
+}
+
+.v3-footer-minimal__whatsapp > span {
+  width:
+    40px !important;
+
+  height:
+    40px !important;
+
+  font-size:
+    17px !important;
+}
+
+.v3-footer-minimal__whatsapp small {
+  font-size:
+    6px !important;
+}
+
+.v3-footer-minimal__whatsapp strong {
+  font-size:
+    11px !important;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .v3-brand-hero__cover-top {
+    top: 90px;
+  }
+
+  .v3-brand-hero__cover-bottom {
+    bottom: 25px;
+
+    gap: 8px;
+  }
+
+  .v3-brand-hero__cover-bottom span:nth-of-type(n+5),
+  .v3-brand-hero__cover-bottom i:nth-of-type(n+4) {
+    display: none;
+  }
+
+  .v3-brand-hero__brand::after {
+    left: 50%;
+    bottom: 27px;
+
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+  }
+}
+
+
+@media (max-width: 640px) {
+
+  .header .logo {
+    width: 47px !important;
+    min-width: 47px !important;
+  }
+
+  .v3-header-symbol {
+    width: 43px !important;
+    height: 43px !important;
+  }
+
+  .v3-brand-hero__cover-top {
+    top: 82px;
+  }
+
+  .v3-brand-hero__cover-top span {
+    display: none;
+  }
+
+  .v3-brand-hero__cover-top {
+    justify-content: flex-end;
+  }
+
+  .v3-brand-hero__brand::after {
+    bottom: 15px;
+
+    font-size: 6px;
+  }
+
+  .v3-brand-hero__ticker > strong {
+    font-size: 21px !important;
+  }
+
+  .v3-brand-hero__cover-bottom {
+    display: none;
+  }
+
+  .v3-footer-minimal {
+    padding:
+      23px 0 27px !important;
+  }
+
+  .v3-footer-minimal__socials a {
+    min-height:
+      58px !important;
+  }
+
+  .v3-footer-minimal__whatsapp {
+    min-width:
+      0 !important;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB — HEADER FINAL PROVISIONAL
+   Logo completo hasta tener foto de equipo.
+========================================================= */
+
+.header .logo {
+  width: auto !important;
+  min-width: 145px !important;
+}
+
+.v3-header-full-logo {
+  width: 145px !important;
+  height: 58px !important;
+  max-width: 145px !important;
+  max-height: 58px !important;
+
+  object-fit: contain !important;
+  object-position: left center !important;
+}
+
+@media (max-width: 640px) {
+  .header .logo {
+    min-width: 112px !important;
+  }
+
+  .v3-header-full-logo {
+    width: 112px !important;
+    height: 47px !important;
+    max-width: 112px !important;
+    max-height: 47px !important;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB — FOOTER LIMPIO FINAL
+   Correo + redes + WhatsApp
+========================================================= */
+
+.v3-footer-clean {
+  padding: 26px 0;
+
+  border-top:
+    1px solid rgba(18,99,145,.065);
+
+  background: #f8fbfd;
+}
+
+.v3-footer-clean__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+}
+
+.v3-footer-clean__left {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+/* EMAIL */
+
+.v3-footer-clean__email {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #274c62;
+
+  text-decoration: none;
+}
+
+.v3-footer-clean__icon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(19,137,188,.10);
+  border-radius: 50%;
+
+  color: #168fc2;
+  background: #edf8fd;
+}
+
+.v3-footer-clean__icon svg {
+  width: 19px;
+  height: 19px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.v3-footer-clean__email > div {
+  display: grid;
+  gap: 3px;
+}
+
+.v3-footer-clean__email small {
+  color: #8ca1ae;
+
+  font-size: 5px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.v3-footer-clean__email strong {
+  color: #274c62;
+
+  font:
+    700 10px/1
+    "Sora",
+    sans-serif;
+}
+
+
+/* SOCIAL ICONS */
+
+.v3-footer-clean__socials {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.v3-footer-clean__socials a {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(19,117,159,.075);
+
+  border-radius: 50%;
+
+  color: #57778b;
+  background: rgba(255,255,255,.82);
+
+  transition:
+    transform .22s ease,
+    color .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
+
+.v3-footer-clean__socials a:hover {
+  transform: translateY(-3px);
+
+  color: #168fc2;
+  border-color: rgba(22,143,194,.18);
+  background: #fff;
+}
+
+.v3-footer-clean__socials svg {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.v3-footer-clean__socials a:first-child svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.v3-footer-clean__socials a:last-child svg path:first-child {
+  fill: none;
+}
+
+
+/* WHATSAPP */
+
+.v3-footer-clean__whatsapp {
+  min-width: 215px;
+
+  display: grid;
+  grid-template-columns: 40px 1fr 20px;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px 13px;
+
+  border:
+    1px solid rgba(25,143,112,.11);
+
+  border-radius: 999px;
+
+  color: #17483d;
+  background: #f0faf6;
+
+  text-decoration: none;
+
+  transition:
+    transform .24s ease,
+    box-shadow .24s ease,
+    border-color .24s ease;
+}
+
+.v3-footer-clean__whatsapp:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(25,143,112,.20);
+
+  box-shadow:
+    0 12px 28px rgba(27,114,91,.08);
+}
+
+.v3-footer-clean__wa-icon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #fff;
+  background: #1a9d73;
+}
+
+.v3-footer-clean__wa-icon svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.v3-footer-clean__whatsapp > div {
+  display: grid;
+  gap: 2px;
+}
+
+.v3-footer-clean__whatsapp small {
+  color: #6e988b;
+
+  font-size: 5px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.v3-footer-clean__whatsapp strong {
+  color: #17483d;
+
+  font:
+    700 10px/1.15
+    "Sora",
+    sans-serif;
+}
+
+.v3-footer-clean__whatsapp > b {
+  justify-self: end;
+
+  color: #1a9d73;
+
+  font-size: 15px;
+}
+
+
+/* Hide old footer styles if still present in CSS */
+.v3-footer-minimal {
+  display: none !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .v3-footer-clean {
+    padding: 22px 0 25px;
+  }
+
+  .v3-footer-clean__inner {
+    align-items: stretch;
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .v3-footer-clean__left {
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+  }
+
+  .v3-footer-clean__whatsapp {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .v3-footer-clean__left {
+    flex-direction: column;
+  }
+
+  .v3-footer-clean__email {
+    width: 100%;
+  }
+
+  .v3-footer-clean__socials {
+    width: 100%;
+  }
+
+  .v3-footer-clean__socials a {
+    flex: 1;
+
+    border-radius: 12px;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB — AJUSTE FINAL DE REDES SOCIALES
+========================================================= */
+
+/* Desktop: ~70% larger visual presence */
+@media (min-width: 801px) {
+
+  .v3-footer-clean__socials {
+    gap: 11px !important;
+  }
+
+  .v3-footer-clean__socials a {
+    width: 66px !important;
+    height: 66px !important;
+
+    border-width: 1.5px !important;
+    border-color: rgba(19,117,159,.13) !important;
+
+    background:
+      rgba(255,255,255,.92) !important;
+
+    box-shadow:
+      0 9px 22px
+      rgba(19,86,122,.055);
+  }
+
+  .v3-footer-clean__socials svg {
+    width: 30px !important;
+    height: 30px !important;
+
+    stroke-width: 1.9 !important;
+  }
+
+  .v3-footer-clean__socials a:hover {
+    border-color:
+      rgba(22,143,194,.26) !important;
+
+    box-shadow:
+      0 13px 28px
+      rgba(19,86,122,.09) !important;
+  }
+}
+
+
+/* Mobile: ~20% larger + clearer framed buttons */
+@media (max-width: 800px) {
+
+  .v3-footer-clean__socials {
+    gap: 9px !important;
+  }
+
+  .v3-footer-clean__socials a {
+    min-height: 70px !important;
+
+    border:
+      1.5px solid
+      rgba(19,117,159,.14) !important;
+
+    border-radius:
+      16px !important;
+
+    background:
+      rgba(255,255,255,.94) !important;
+
+    box-shadow:
+      0 8px 20px
+      rgba(19,86,122,.05);
+  }
+
+  .v3-footer-clean__socials svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+}
+
+
+@media (max-width: 520px) {
+
+  .v3-footer-clean__socials {
+    display: grid !important;
+    grid-template-columns:
+      repeat(4,1fr) !important;
+  }
+
+  .v3-footer-clean__socials a {
+    width: 100% !important;
+    height: 64px !important;
+    min-height: 64px !important;
+
+    border:
+      1.5px solid
+      rgba(19,117,159,.15) !important;
+
+    border-radius:
+      15px !important;
+  }
+
+  .v3-footer-clean__socials svg {
+    width: 21px !important;
+    height: 21px !important;
+  }
+}
+
+
+/* =========================================================
+   JAVSEB — FOOTER AZUL FINAL
+   Conecta visualmente con "Cómo trabajamos".
+========================================================= */
+
+.v3-footer-clean {
+  position: relative;
+
+  padding:
+    42px 0 46px !important;
+
+  overflow: hidden;
+
+  border-top: 0 !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #061427 0%,
+      #08223a 42%,
+      #0a3554 100%
+    ) !important;
+}
+
+.v3-footer-clean::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 18% 0%,
+      rgba(49,205,248,.10),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 82% 100%,
+      rgba(28,130,232,.09),
+      transparent 28%
+    );
+}
+
+.v3-footer-clean__inner {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   EMAIL
+--------------------------------------------------------- */
+
+.v3-footer-clean__email {
+  gap: 13px !important;
+}
+
+.v3-footer-clean__icon {
+  width: 56px !important;
+  height: 56px !important;
+
+  border:
+    2px solid
+    rgba(89,220,255,.48) !important;
+
+  color: #ffffff !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(49,191,236,.22),
+      rgba(22,111,186,.20)
+    ) !important;
+
+  box-shadow:
+    0 0 0 7px rgba(75,205,245,.035),
+    0 12px 28px rgba(0,0,0,.16);
+}
+
+.v3-footer-clean__icon svg {
+  width: 27px !important;
+  height: 27px !important;
+
+  stroke-width: 1.9 !important;
+}
+
+.v3-footer-clean__email small {
+  color: #77cce8 !important;
+
+  font-size: 7px !important;
+}
+
+.v3-footer-clean__email strong {
+  color: #ffffff !important;
+
+  font-size: 13px !important;
+}
+
+
+/* ---------------------------------------------------------
+   REDES — DESKTOP
+--------------------------------------------------------- */
+
+.v3-footer-clean__socials {
+  gap: 14px !important;
+}
+
+.v3-footer-clean__socials a {
+  width: 84px !important;
+  height: 84px !important;
+
+  border:
+    2px solid
+    rgba(87,217,255,.54) !important;
+
+  border-radius: 24px !important;
+
+  color: #ffffff !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(48,190,238,.19),
+      rgba(20,94,164,.22)
+    ) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.035),
+    0 0 0 7px rgba(67,202,244,.025),
+    0 16px 32px rgba(0,0,0,.18) !important;
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .25s ease !important;
+}
+
+.v3-footer-clean__socials a:hover {
+  transform:
+    translateY(-5px)
+    scale(1.035) !important;
+
+  color: #ffffff !important;
+
+  border-color:
+    rgba(112,232,255,.90) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(55,208,249,.31),
+      rgba(21,119,197,.32)
+    ) !important;
+
+  box-shadow:
+    0 0 0 8px rgba(82,216,250,.045),
+    0 19px 38px rgba(0,0,0,.22) !important;
+}
+
+.v3-footer-clean__socials svg {
+  width: 39px !important;
+  height: 39px !important;
+
+  stroke-width: 1.9 !important;
+
+  color: #ffffff !important;
+}
+
+
+/* ---------------------------------------------------------
+   WHATSAPP
+--------------------------------------------------------- */
+
+.v3-footer-clean__whatsapp {
+  min-width: 248px !important;
+
+  grid-template-columns:
+    52px
+    1fr
+    24px !important;
+
+  gap: 12px !important;
+
+  padding:
+    11px 16px !important;
+
+  border:
+    2px solid
+    rgba(77,226,174,.42) !important;
+
+  color: #ffffff !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28,156,111,.22),
+      rgba(21,101,93,.26)
+    ) !important;
+
+  box-shadow:
+    0 14px 31px
+    rgba(0,0,0,.16);
+}
+
+.v3-footer-clean__whatsapp:hover {
+  border-color:
+    rgba(92,239,187,.72) !important;
+
+  box-shadow:
+    0 0 0 7px rgba(53,211,157,.035),
+    0 18px 36px rgba(0,0,0,.20) !important;
+}
+
+.v3-footer-clean__wa-icon {
+  width: 52px !important;
+  height: 52px !important;
+
+  border:
+    1px solid rgba(255,255,255,.23);
+
+  background:
+    #18a575 !important;
+
+  box-shadow:
+    0 0 0 7px rgba(27,194,136,.055);
+}
+
+.v3-footer-clean__wa-icon svg {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.v3-footer-clean__whatsapp small {
+  color: #78d9ba !important;
+
+  font-size: 7px !important;
+}
+
+.v3-footer-clean__whatsapp strong {
+  color: #ffffff !important;
+
+  font-size: 13px !important;
+}
+
+.v3-footer-clean__whatsapp > b {
+  color: #69e4b7 !important;
+
+  font-size: 20px !important;
+}
+
+
+/* ---------------------------------------------------------
+   ELIMINA EL CORTE VISUAL ENTRE PROCESO Y FOOTER
+--------------------------------------------------------- */
+
+.v3-stairs {
+  margin-bottom: 0 !important;
+
+  border-bottom: 0 !important;
+}
+
+.v3-stairs::after {
+  content: "";
+
+  position: absolute;
+  z-index: 1;
+
+  left: 0;
+  right: 0;
+  bottom: -1px;
+
+  height: 125px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6,20,39,0),
+      #061427 92%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   TABLET / MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .v3-footer-clean {
+    padding:
+      30px 0 34px !important;
+  }
+
+  .v3-footer-clean__icon {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .v3-footer-clean__socials {
+    gap: 10px !important;
+  }
+
+  .v3-footer-clean__socials a {
+    width: auto !important;
+    min-height: 76px !important;
+    height: 76px !important;
+
+    border:
+      2px solid
+      rgba(87,217,255,.52) !important;
+
+    border-radius:
+      18px !important;
+  }
+
+  .v3-footer-clean__socials svg {
+    width: 27px !important;
+    height: 27px !important;
+  }
+
+  .v3-footer-clean__whatsapp {
+    min-width: 0 !important;
+  }
+}
+
+
+@media (max-width: 520px) {
+
+  .v3-footer-clean__socials {
+    grid-template-columns:
+      repeat(4,1fr) !important;
+  }
+
+  .v3-footer-clean__socials a {
+    width: 100% !important;
+    height: 70px !important;
+    min-height: 70px !important;
+
+    border:
+      2px solid
+      rgba(87,217,255,.58) !important;
+
+    border-radius:
+      17px !important;
+  }
+
+  .v3-footer-clean__socials svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .v3-footer-clean__email strong {
+    font-size: 11px !important;
+  }
+}

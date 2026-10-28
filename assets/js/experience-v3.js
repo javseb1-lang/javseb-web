@@ -1,61 +1,41 @@
 // =========================================================
-// JAVSEB V3 — CREATIVE EXPERIENCE
-// PARTE 02 — HERO CINEMATOGRÁFICO
-//
-// 1) Hero entra en viewport
-// 2) texto aparece por capas
-// 3) mockup entra con profundidad
-// 4) Kiru camina lentamente
-// 5) Kiru cambia a pose final
-// 6) Hero queda con microvida ambiental
+// JAVSEB V3 — HERO FINAL
+// KIRU CAMINA → SE SIENTA → TRABAJA
 // =========================================================
-
 (() => {
   "use strict";
 
   const hero =
-    document.querySelector(".v2-hero");
+    document.querySelector(
+      ".v3-brand-hero"
+    );
 
   const stage =
-    document.getElementById("v3HeroStage");
+    document.getElementById(
+      "v3HeroStage"
+    );
 
   const walker =
-    document.getElementById("v3KiruWalker");
+    document.getElementById(
+      "v3KiruWalker"
+    );
 
   const finalKiru =
-    document.getElementById("v3KiruFinal");
+    document.getElementById(
+      "v3KiruFinal"
+    );
 
   const glow =
-    document.getElementById("v3KiruArrivalGlow");
+    document.getElementById(
+      "v3KiruArrivalGlow"
+    );
 
-  const eyebrow =
-    document.getElementById("v3HeroEyebrow");
-
-  const titleMain =
-    document.querySelector(".v3-hero-title__main");
-
-  const titleStrong =
-    document.querySelector(".v3-hero-title strong");
-
-  const lead =
-    document.getElementById("v3HeroLead");
-
-  const actions =
-    document.getElementById("v3HeroActions");
-
-  const trust =
-    document.getElementById("v3HeroTrust");
-
-  const store =
-    document.getElementById("v3StoreWindow");
-
-  const chipSales =
-    document.getElementById("v3HeroChipSales");
-
-  const chipCustom =
-    document.getElementById("v3HeroChipCustom");
-
-  if (!hero || !stage || !walker || !finalKiru) {
+  if (
+    !hero ||
+    !stage ||
+    !walker ||
+    !finalKiru
+  ) {
     return;
   }
 
@@ -67,561 +47,441 @@
   const mobile =
     window.matchMedia(
       "(max-width: 640px)"
-    ).matches;
-
-  const wait = (ms) =>
-    new Promise((resolve) =>
-      window.setTimeout(resolve, ms)
     );
 
-  let experienceStarted = false;
+  const wait =
+    (ms) =>
+      new Promise(
+        (resolve) =>
+          window.setTimeout(
+            resolve,
+            ms
+          )
+      );
 
-  const showFinalState = () => {
-    document.body.classList.remove("v3-hero-prep");
-    document.body.classList.remove("v3-kiru-pending");
-    document.body.classList.remove("v3-kiru-walking");
+  const walkSprite =
+    "assets/img/kiru/motion/walk/kiru-walk-sprite.png";
 
-    document.body.classList.add("v3-kiru-arrived");
-    document.body.classList.add("v3-hero-ready");
+  const workFrames =
+    Array.from(
+      { length: 12 },
+      (_, i) =>
+        `assets/img/kiru/motion/work/kiru-work-${String(i + 1).padStart(2,"0")}.png`
+    );
 
-    walker.style.opacity = "0";
-    walker.style.visibility = "hidden";
-    finalKiru.style.opacity = "1";
-  };
+  let started =
+    false;
 
-  if (reduceMotion || mobile) {
-    showFinalState();
+  let walkReady =
+    false;
+
+  const walkImage =
+    new Image();
+
+  walkImage.onload =
+    () => {
+      walkReady = true;
+    };
+
+  walkImage.onerror =
+    () => {
+      walkReady = false;
+    };
+
+  walkImage.src =
+    walkSprite;
+
+  /*
+   * Preload all 12 work frames so the sit-down animation
+   * does not flash while changing files.
+   */
+  const workPreload =
+    workFrames.map(
+      (src) =>
+        new Promise(
+          (resolve) => {
+            const img =
+              new Image();
+
+            img.onload =
+              () => resolve(true);
+
+            img.onerror =
+              () => resolve(false);
+
+            img.src =
+              src;
+          }
+        )
+    );
+
+  const showFinalWorkPose =
+    () => {
+      document.body.classList.remove(
+        "v3-kiru-pending",
+        "v3-kiru-walking"
+      );
+
+      document.body.classList.add(
+        "v3-kiru-arrived",
+        "v3-kiru-working",
+        "v3-hero-ready"
+      );
+
+      walker.style.opacity =
+        "0";
+
+      walker.style.visibility =
+        "hidden";
+
+      finalKiru.src =
+        workFrames[
+          workFrames.length - 1
+        ];
+
+      finalKiru.style.opacity =
+        "1";
+    };
+
+  /*
+   * Mobile already has the separate greeting animation.
+   */
+  if (mobile.matches) {
     return;
   }
 
-  /* =======================================================
-     PREPARAR HERO
-  ======================================================= */
+  if (reduceMotion) {
+    showFinalWorkPose();
+    return;
+  }
 
-  document.body.classList.add("v3-hero-prep");
-  document.body.classList.add("v3-kiru-pending");
+  document.body.classList.add(
+    "v3-kiru-pending"
+  );
 
-  walker.style.opacity = "0";
-  walker.style.visibility = "hidden";
+  walker.style.opacity =
+    "0";
 
-  /* =======================================================
-     UTILIDAD DE ANIMACIÓN
-  ======================================================= */
+  walker.style.visibility =
+    "hidden";
 
-  const animateElement = (
-    element,
-    frames,
-    options
-  ) => {
-    if (!element) {
-      return Promise.resolve();
-    }
+  finalKiru.style.opacity =
+    "0";
 
-    const animation =
-      element.animate(
-        frames,
-        {
-          fill: "forwards",
-          ...options
-        }
-      );
+  const waitForIntro =
+    async () => {
 
-    return animation.finished.catch(
-      () => undefined
-    );
-  };
+      let elapsed =
+        0;
 
-  /* =======================================================
-     TEXTO + MOCKUP
-  ======================================================= */
-
-  const playHeroIntro = async () => {
-    await wait(220);
-
-    animateElement(
-      eyebrow,
-      [
-        {
-          opacity: 0,
-          transform: "translate3d(0,14px,0)"
-        },
-        {
-          opacity: 1,
-          transform: "translate3d(0,0,0)"
-        }
-      ],
-      {
-        duration: 520,
-        easing: "cubic-bezier(.2,.7,.25,1)"
+      while (
+        document.getElementById(
+          "v3Intro"
+        ) &&
+        elapsed < 12000
+      ) {
+        await wait(120);
+        elapsed += 120;
       }
-    );
 
-    await wait(115);
+      /*
+       * A short breath between intro and Kiru entering.
+       */
+      await wait(520);
+    };
 
-    animateElement(
-      titleMain,
-      [
-        {
-          opacity: 0,
-          transform: "translate3d(0,26px,0)",
-          filter: "blur(8px)"
-        },
-        {
-          opacity: 1,
-          transform: "translate3d(0,0,0)",
-          filter: "blur(0px)"
-        }
-      ],
-      {
-        duration: 720,
-        easing: "cubic-bezier(.16,1,.3,1)"
-      }
-    );
+  const playWorkSequence =
+    async () => {
 
-    await wait(140);
-
-    animateElement(
-      titleStrong,
-      [
-        {
-          opacity: 0,
-          transform:
-            "translate3d(0,25px,0) scale(.985)",
-          filter: "blur(7px)"
-        },
-        {
-          opacity: 1,
-          transform:
-            "translate3d(0,0,0) scale(1)",
-          filter: "blur(0px)"
-        }
-      ],
-      {
-        duration: 760,
-        easing: "cubic-bezier(.16,1,.3,1)"
-      }
-    );
-
-    await wait(120);
-
-    animateElement(
-      lead,
-      [
-        {
-          opacity: 0,
-          transform: "translate3d(0,16px,0)"
-        },
-        {
-          opacity: 1,
-          transform: "translate3d(0,0,0)"
-        }
-      ],
-      {
-        duration: 580,
-        easing: "cubic-bezier(.2,.7,.25,1)"
-      }
-    );
-
-    await wait(80);
-
-    animateElement(
-      actions,
-      [
-        {
-          opacity: 0,
-          transform: "translate3d(0,15px,0)"
-        },
-        {
-          opacity: 1,
-          transform: "translate3d(0,0,0)"
-        }
-      ],
-      {
-        duration: 560,
-        easing: "cubic-bezier(.2,.7,.25,1)"
-      }
-    );
-
-    await wait(70);
-
-    animateElement(
-      trust,
-      [
-        {
-          opacity: 0,
-          transform: "translate3d(0,12px,0)"
-        },
-        {
-          opacity: 1,
-          transform: "translate3d(0,0,0)"
-        }
-      ],
-      {
-        duration: 520,
-        easing: "cubic-bezier(.2,.7,.25,1)"
-      }
-    );
-  };
-
-  const playVisualIntro = async () => {
-    await wait(470);
-
-    await animateElement(
-      store,
-      [
-        {
-          opacity: 0,
-          transform:
-            "translate3d(44px,18px,0) scale(.955)",
-          filter: "blur(8px)"
-        },
-        {
-          opacity: 1,
-          transform:
-            "translate3d(0,0,0) scale(1)",
-          filter: "blur(0px)"
-        }
-      ],
-      {
-        duration: 980,
-        easing: "cubic-bezier(.16,1,.3,1)"
-      }
-    );
-
-    await wait(110);
-
-    animateElement(
-      chipSales,
-      [
-        {
-          opacity: 0,
-          transform:
-            "translate3d(-10px,13px,0) scale(.94)",
-          filter: "blur(5px)"
-        },
-        {
-          opacity: 1,
-          transform:
-            "translate3d(0,0,0) scale(1)",
-          filter: "blur(0)"
-        }
-      ],
-      {
-        duration: 620,
-        easing: "cubic-bezier(.16,1,.3,1)"
-      }
-    );
-
-    await wait(130);
-
-    animateElement(
-      chipCustom,
-      [
-        {
-          opacity: 0,
-          transform:
-            "translate3d(10px,13px,0) scale(.94)",
-          filter: "blur(5px)"
-        },
-        {
-          opacity: 1,
-          transform:
-            "translate3d(0,0,0) scale(1)",
-          filter: "blur(0)"
-        }
-      ],
-      {
-        duration: 620,
-        easing: "cubic-bezier(.16,1,.3,1)"
-      }
-    );
-  };
-
-  /* =======================================================
-     KIRU WALK
-  ======================================================= */
-
-  const spritePath =
-    "assets/img/kiru/motion/walk/kiru-walk-sprite.png";
-
-  const sprite =
-    new Image();
-
-  sprite.src =
-    spritePath;
-
-  let spriteReady =
-    false;
-
-  sprite.onload = () => {
-    spriteReady = true;
-  };
-
-  sprite.onerror = () => {
-    spriteReady = false;
-
-    console.warn(
-      "JAVSEB V3: no se pudo cargar el sprite de Kiru."
-    );
-  };
-
-  const playKiruWalk = async () => {
-    if (!spriteReady) {
-      showFinalState();
-      return;
-    }
-
-    document.body.classList.remove(
-      "v3-kiru-pending"
-    );
-
-    document.body.classList.add(
-      "v3-kiru-walking"
-    );
-
-    /*
-     * El Hero ya empezó a construirse.
-     * Kiru entra después, no inmediatamente.
-     */
-    await wait(1500);
-
-    const stageWidth =
-      stage.getBoundingClientRect().width;
-
-    const destination =
-      Math.max(
-        215,
-        Math.min(
-          325,
-          stageWidth * 0.46
-        )
-      );
-
-    walker.style.visibility =
-      "visible";
-
-    walker.style.opacity =
-      "1";
-
-    await animateElement(
-      walker,
-      [
-        {
-          opacity: 0,
-          transform:
-            "translate3d(-38px,3px,0)"
-        },
-        {
-          opacity: 1,
-          transform:
-            "translate3d(0,0,0)"
-        }
-      ],
-      {
-        duration: 650,
-        easing: "cubic-bezier(.2,.7,.25,1)"
-      }
-    );
-
-    const walk =
-      walker.animate(
-        [
-          {
-            transform:
-              "translate3d(0,0,0)"
-          },
-          {
-            offset: .2,
-            transform:
-              `translate3d(${destination * .2}px,-2px,0)`
-          },
-          {
-            offset: .4,
-            transform:
-              `translate3d(${destination * .4}px,0,0)`
-          },
-          {
-            offset: .6,
-            transform:
-              `translate3d(${destination * .6}px,-2px,0)`
-          },
-          {
-            offset: .8,
-            transform:
-              `translate3d(${destination * .8}px,0,0)`
-          },
-          {
-            transform:
-              `translate3d(${destination}px,0,0)`
-          }
-        ],
-        {
-          duration: 7200,
-          easing: "linear",
-          fill: "forwards"
-        }
-      );
-
-    try {
-      await walk.finished;
-    } catch {
-      showFinalState();
-      return;
-    }
-
-    await wait(420);
-
-    if (glow) {
-      glow.animate(
-        [
-          {
-            opacity: 0,
-            transform: "scaleX(.55)"
-          },
-          {
-            opacity: 1,
-            transform: "scaleX(1.08)"
-          },
-          {
-            opacity: .35,
-            transform: "scaleX(.94)"
-          }
-        ],
-        {
-          duration: 800,
-          easing: "cubic-bezier(.2,.7,.25,1)",
-          fill: "forwards"
-        }
-      );
-    }
-
-    const exit =
-      walker.animate(
-        [
-          {
-            opacity: 1,
-            transform:
-              `translate3d(${destination}px,0,0) scale(1)`
-          },
-          {
-            opacity: 0,
-            transform:
-              `translate3d(${destination + 4}px,-3px,0) scale(.97)`
-          }
-        ],
-        {
-          duration: 450,
-          easing: "ease-out",
-          fill: "forwards"
-        }
-      );
-
-    document.body.classList.remove(
-      "v3-kiru-walking"
-    );
-
-    document.body.classList.add(
-      "v3-kiru-arrived"
-    );
-
-    try {
-      await exit.finished;
-    } catch {
-      // La pose final sigue siendo válida.
-    }
-
-    walker.style.visibility =
-      "hidden";
-
-    finalKiru.style.opacity =
-      "1";
-
-    await wait(280);
-
-    document.body.classList.add(
-      "v3-hero-ready"
-    );
-  };
-
-  /* =======================================================
-     INICIAR TODA LA EXPERIENCIA
-  ======================================================= */
-
-  const startExperience = () => {
-    if (experienceStarted) {
-      return;
-    }
-
-    experienceStarted = true;
-
-    /*
-     * Las dos mitades empiezan coordinadas.
-     */
-    playHeroIntro();
-    playVisualIntro();
-
-    /*
-     * Damos tiempo al preload del sprite.
-     */
-    window.setTimeout(
-      () => {
-        playKiruWalk();
-      },
-      1250
-    );
-
-    /*
-     * Quitamos la clase de preparación después
-     * de que WAAPI ya tomó control de los elementos.
-     */
-    window.setTimeout(
-      () => {
-        document.body.classList.remove(
-          "v3-hero-prep"
+      const results =
+        await Promise.all(
+          workPreload
         );
-      },
-      1600
-    );
-  };
 
-  /* =======================================================
-     OBSERVAR HERO
-  ======================================================= */
+      if (
+        results.some(
+          (ok) => !ok
+        )
+      ) {
+        /*
+         * If one image is missing, keep the first available
+         * pose rather than breaking the Hero.
+         */
+        finalKiru.src =
+          workFrames[0];
 
-  if (!("IntersectionObserver" in window)) {
-    startExperience();
+        document.body.classList.add(
+          "v3-kiru-arrived",
+          "v3-hero-ready"
+        );
+
+        finalKiru.style.opacity =
+          "1";
+
+        return;
+      }
+
+      finalKiru.src =
+        workFrames[0];
+
+      finalKiru.style.opacity =
+        "1";
+
+      document.body.classList.add(
+        "v3-kiru-arrived"
+      );
+
+      /*
+       * 12 frames at 145 ms ≈ 1.7 s.
+       * The first frames connect the walk with the chair,
+       * the final frame remains as the stable working pose.
+       */
+      for (
+        let i = 0;
+        i < workFrames.length;
+        i += 1
+      ) {
+        finalKiru.src =
+          workFrames[i];
+
+        await wait(
+          i < 5
+            ? 135
+            : 150
+        );
+      }
+
+      finalKiru.src =
+        workFrames[
+          workFrames.length - 1
+        ];
+
+      document.body.classList.add(
+        "v3-kiru-working",
+        "v3-hero-ready"
+      );
+    };
+
+  const play =
+    async () => {
+
+      if (started) {
+        return;
+      }
+
+      started =
+        true;
+
+      await waitForIntro();
+
+      if (!walkReady) {
+        /*
+         * Give the sprite one final moment to finish loading.
+         */
+        await wait(500);
+      }
+
+      if (!walkReady) {
+        showFinalWorkPose();
+        return;
+      }
+
+      document.body.classList.remove(
+        "v3-kiru-pending"
+      );
+
+      document.body.classList.add(
+        "v3-kiru-walking"
+      );
+
+      walker.style.visibility =
+        "visible";
+
+      walker.style.opacity =
+        "1";
+
+      const stageWidth =
+        stage.getBoundingClientRect().width;
+
+      /*
+       * Kiru crosses almost the whole stage and stops
+       * where the seated work pose will appear.
+       */
+      const destination =
+        Math.max(
+          250,
+          Math.min(
+            420,
+            stageWidth * .70
+          )
+        );
+
+      const enter =
+        walker.animate(
+          [
+            {
+              opacity: 0,
+              transform:
+                "translate3d(-45px,4px,0)"
+            },
+            {
+              opacity: 1,
+              transform:
+                "translate3d(0,0,0)"
+            }
+          ],
+          {
+            duration: 620,
+            easing:
+              "cubic-bezier(.16,1,.3,1)",
+            fill: "forwards"
+          }
+        );
+
+      try {
+        await enter.finished;
+      } catch {}
+
+      const walk =
+        walker.animate(
+          [
+            {
+              transform:
+                "translate3d(0,0,0)"
+            },
+            {
+              offset: .25,
+              transform:
+                `translate3d(${destination * .25}px,-2px,0)`
+            },
+            {
+              offset: .50,
+              transform:
+                `translate3d(${destination * .50}px,0,0)`
+            },
+            {
+              offset: .75,
+              transform:
+                `translate3d(${destination * .75}px,-2px,0)`
+            },
+            {
+              transform:
+                `translate3d(${destination}px,0,0)`
+            }
+          ],
+          {
+            duration: 6500,
+            easing: "linear",
+            fill: "forwards"
+          }
+        );
+
+      try {
+        await walk.finished;
+      } catch {
+        showFinalWorkPose();
+        return;
+      }
+
+      /*
+       * Small pause at destination so the transition
+       * does not feel like a fall/cut.
+       */
+      await wait(260);
+
+      if (glow) {
+        glow.animate(
+          [
+            {
+              opacity: 0,
+              transform:
+                "scaleX(.50)"
+            },
+            {
+              opacity: .8,
+              transform:
+                "scaleX(1.08)"
+            },
+            {
+              opacity: .24,
+              transform:
+                "scaleX(.94)"
+            }
+          ],
+          {
+            duration: 680,
+            easing:
+              "cubic-bezier(.16,1,.3,1)",
+            fill: "forwards"
+          }
+        );
+      }
+
+      const exit =
+        walker.animate(
+          [
+            {
+              opacity: 1,
+              transform:
+                `translate3d(${destination}px,0,0) scale(1)`
+            },
+            {
+              opacity: 0,
+              transform:
+                `translate3d(${destination + 2}px,1px,0) scale(.985)`
+            }
+          ],
+          {
+            duration: 320,
+            easing: "ease-out",
+            fill: "forwards"
+          }
+        );
+
+      try {
+        await exit.finished;
+      } catch {}
+
+      walker.style.visibility =
+        "hidden";
+
+      document.body.classList.remove(
+        "v3-kiru-walking"
+      );
+
+      await playWorkSequence();
+    };
+
+  if (
+    !("IntersectionObserver" in window)
+  ) {
+    play();
     return;
   }
 
   const observer =
     new IntersectionObserver(
       (entries) => {
+
         const entry =
           entries[0];
 
         if (
           !entry ||
-          !entry.isIntersecting
-        ) {
-          return;
-        }
-
-        if (
-          entry.intersectionRatio < .42
+          !entry.isIntersecting ||
+          entry.intersectionRatio < .35
         ) {
           return;
         }
 
         observer.disconnect();
 
-        startExperience();
+        play();
+
       },
       {
         threshold:
-          [.2, .32, .42, .55, .7],
-
-        rootMargin:
-          "0px 0px -3% 0px"
+          [.20,.35,.50,.70]
       }
     );
 
@@ -1425,7 +1285,7 @@
         }
       ],
       {
-        duration: 950,
+        duration: 1500,
         easing:
           "cubic-bezier(.16,1,.3,1)"
       }
@@ -1434,7 +1294,7 @@
     /*
      * Dejamos respirar la frase.
      */
-    await wait(650);
+    await wait(1250);
 
     if (status) {
       status.textContent =
@@ -1454,7 +1314,7 @@
         }
       ],
       {
-        duration: 1250,
+        duration: 1550,
         easing:
           "cubic-bezier(.4,0,.2,1)"
       }
@@ -1465,7 +1325,7 @@
         "LISTO";
     }
 
-    await wait(520);
+    await wait(780);
 
     await animate(
       intro,
@@ -2786,5 +2646,277 @@
    */
   core.dataset.capabilityActive =
     "systems";
+})();
+
+
+
+// =========================================================
+// JAVSEB V3 — PORTAFOLIO SIMPLE
+// =========================================================
+(() => {
+  "use strict";
+
+  const section =
+    document.querySelector(
+      ".v3-simple-portfolio"
+    );
+
+  if (!section) {
+    return;
+  }
+
+  const filters = [
+    ...section.querySelectorAll(
+      "[data-simple-filter]"
+    )
+  ];
+
+  const projects = [
+    ...section.querySelectorAll(
+      "[data-simple-category]"
+    )
+  ];
+
+  const empty =
+    document.getElementById(
+      "v3SimplePortfolioEmpty"
+    );
+
+  const apply =
+    (category) => {
+
+      let visible = 0;
+
+      filters.forEach(
+        (button) => {
+          button.classList.toggle(
+            "is-active",
+            button.dataset.simpleFilter === category
+          );
+        }
+      );
+
+      projects.forEach(
+        (project) => {
+
+          const show =
+            category === "all" ||
+            project.dataset.simpleCategory === category;
+
+          project.classList.toggle(
+            "is-hidden",
+            !show
+          );
+
+          if (show) {
+            visible += 1;
+          }
+
+        }
+      );
+
+      if (empty) {
+        empty.hidden =
+          visible !== 0;
+      }
+
+    };
+
+  filters.forEach(
+    (button) => {
+
+      button.addEventListener(
+        "click",
+        () => {
+          apply(
+            button.dataset.simpleFilter
+          );
+        }
+      );
+
+    }
+  );
+
+  apply("all");
+})();
+
+
+
+// =========================================================
+// JAVSEB — GUÍA: SIGUIENTE PASO / EJEMPLO RELACIONADO
+// =========================================================
+(() => {
+  "use strict";
+
+  const link =
+    document.getElementById(
+      "v3GoalExampleLink"
+    );
+
+  const tabs = [
+    ...document.querySelectorAll(
+      ".v3-guide-page [data-goal]"
+    )
+  ];
+
+  if (!link || !tabs.length) {
+    return;
+  }
+
+  const routes = {
+    sell: {
+      href: "../proyectos/",
+      text: "Ver ejemplos web"
+    },
+    organize: {
+      href: "../servicios/#sistemas",
+      text: "Ver sistemas"
+    },
+    automate: {
+      href: "../servicios/#automatizacion",
+      text: "Ver automatización"
+    },
+    idea: {
+      href: "../contacto/",
+      text: "Convertir mi idea en proyecto"
+    }
+  };
+
+  const update =
+    (key) => {
+
+      const config =
+        routes[key];
+
+      if (!config) {
+        return;
+      }
+
+      link.href =
+        config.href;
+
+      link.innerHTML =
+        `${config.text} <span>→</span>`;
+    };
+
+  tabs.forEach(
+    (tab) => {
+
+      tab.addEventListener(
+        "click",
+        () => {
+          update(
+            tab.dataset.goal
+          );
+        }
+      );
+
+    }
+  );
+
+  update("sell");
+})();
+
+
+
+// =========================================================
+// JAVSEB V3 — PORTADA
+// TEXTO PEQUEÑO CAMBIANTE
+// =========================================================
+(() => {
+  "use strict";
+
+  const text =
+    document.getElementById(
+      "v3HeroRotatingText"
+    );
+
+  if (!text) {
+    return;
+  }
+
+  const reduceMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+  const items = [
+    "Sistemas a medida",
+    "Páginas web",
+    "Aplicaciones",
+    "Automatización",
+    "Juegos educativos",
+    "Contenido digital"
+  ];
+
+  if (reduceMotion) {
+    text.textContent =
+      items[0];
+
+    return;
+  }
+
+  let index =
+    0;
+
+  window.setInterval(
+    () => {
+      text.classList.add(
+        "is-changing"
+      );
+
+      window.setTimeout(
+        () => {
+          index =
+            (index + 1) %
+            items.length;
+
+          text.textContent =
+            items[index];
+
+          text.classList.remove(
+            "is-changing"
+          );
+        },
+        360
+      );
+    },
+    2850
+  );
+})();
+
+
+
+// =========================================================
+// JAVSEB — WHATSAPP FOOTER
+// El número real se conectará reemplazando 591XXXXXXXX.
+// =========================================================
+(() => {
+  "use strict";
+
+  const links = [
+    ...document.querySelectorAll(
+      "[data-javseb-whatsapp]"
+    )
+  ];
+
+  links.forEach(
+    (link) => {
+
+      if (
+        link.href.includes(
+          "591XXXXXXXX"
+        )
+      ) {
+        link.addEventListener(
+          "click",
+          (event) => {
+            event.preventDefault();
+          }
+        );
+      }
+
+    }
+  );
 })();
 
